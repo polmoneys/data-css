@@ -4,74 +4,7 @@ CSS file that avoids **class**.
 
 ### Use
 
-Tokens and `[data-attributes]` will work with any **framework**, a quick `Group` component in React:
-
-```tsx
-
-const Group(props:GroupProps){
-const {
-    children,
-    as,
-    gap = '0',
-    size,
-    ratio,
-    DANGEROUS,
-    direction,
-    stretch,
-    alignItems,
-    justifyContent,
-    wrap,
-    border,
-    padding,
-    marginAuto,
-    ...rest
-  } = props
-
-  const stylesConfig: CSSProperties = useMemo(() => {
-    return {
-      gap,
-      ...(wrap != null && { flexWrap: wrap }),
-      ...(size != null && { flex: `1 0 ${size}` }),
-      ...(direction != null && {
-        flexDirection: direction,
-      }),
-      ...(stretch != null && {
-        width: '100%',
-        height: '100%',
-      }),
-      ...(alignItems != null && {
-        alignItems,
-      }),
-      ...(justifyContent != null && {
-        justifyContent,
-      }),
-    }
-  }, [gap, size, stretch, alignItems, direction, justifyContent, wrap])
-
-  const Tag = as ?? ('div' as ElementType)
-
-  return createElement(
-    Tag,
-    {
-      ...rest,
-      style: {
-        ...(DANGEROUS !== undefined && {
-          ...DANGEROUS,
-        }),
-        ...stylesConfig,
-      },
-      'data-group': 'flex',
-      ...(ratio != null && { 'data-ratio': ratio }),
-      ...(border != null && { 'data-border': border }),
-      ...(padding != null && { 'data-padding': padding }),
-      ...(marginAuto != null && { 'data-m-auto': marginAuto }),
-    },
-    children,
-  )
-}
-```
-
-Build `styles` concatenated in `output`:
+Build `packages/styles`, will concatenate in `packages/dist`:
 
 ```bash
 
