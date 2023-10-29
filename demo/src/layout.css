@@ -18,6 +18,29 @@ header {
     z-index: var(--z-max);
 }
 
+@media (orientation: portrait) {
+    section > header {
+        flex-direction: column;
+    }
+}
+
+@media (orientation: landscape) {
+    section > header div {
+        margin-left: auto;
+        max-width: 450px;
+    }
+}
+
+@media (max-width: 320px) {
+    section > header [data-input] {
+        grid-template-columns: 1fr;
+    }
+    section > header [data-input-start],
+    section > header [data-input-end] {
+        display: none;
+    }
+}
+
 .autocomp {
     box-shadow: var(--shadow);
     transform: translateY(2px);

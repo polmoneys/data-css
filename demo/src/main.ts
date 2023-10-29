@@ -77,13 +77,15 @@ function loop() {
     autocomp($('#q'), {
         // https://github.com/knadh/autocomp.js/blob/master/docs/index.html
         onQuery: async (val: any) => {
-            const value = filtered.filter((snip) =>
+            const results = filtered.filter((snip) =>
                 snip.value.startsWith(val.toLowerCase()),
             );
+
             if (snippet === null) {
-                dispatch(store, 'FILTERED', value);
+                dispatch(store, 'FILTERED', results);
             }
-            return value;
+
+            return results.length === 0 ? SNIPPETS : results;
         },
 
         // Link vs. https://developer.mozilla.org/en-US/docs/Web/API/History/pushState
@@ -96,8 +98,8 @@ function loop() {
         // },
 
         onRender: (o: any) => {
-            const ul = document.createElement('ul');
-            ul.dataset.list = '';
+            const div = document.createElement('div');
+            div.dataset.list = '';
             const dot = document.createElement('span');
             dot.innerHTML = `<svg
                                     width="28"
@@ -111,13 +113,13 @@ function loop() {
             const link = document.createElement('a');
             link.href = `?snippet=${o.value}`;
             link.appendChild(document.createTextNode(o.label));
-            const li = document.createElement('li');
-            li.dataset.listItem = '';
-            li.appendChild(dot);
-            li.appendChild(link);
-            ul.appendChild(li);
+            const child = document.createElement('div');
+            child.dataset.listItem = '';
+            child.appendChild(dot);
+            child.appendChild(link);
+            div.appendChild(child);
 
-            return li;
+            return child;
         },
     });
 
