@@ -1,0 +1,61 @@
+[data-actionsheet] {
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+
+    display: grid;
+    grid-template-rows: 100vh auto auto;
+    gap: var(--gap-3);
+    padding: var(--gap-3);
+    position: fixed;
+    inset: 0;
+    /* 
+    Fills viewport 
+    */
+    max-block-size: 100vh;
+    scrollbar-width: none;
+}
+
+[data-actionsheet]:not([data-actionsheet-open='true']) {
+    pointer-events: none;
+}
+
+[data-actionsheet]::-webkit-scrollbar {
+    display: none;
+}
+
+[data-actionsheet] > menu {
+    grid-row: 2;
+    display: grid;
+    gap: calc(var(--gap-1) / 4);
+    padding: 0;
+}
+
+[data-actionsheet] > menu > button {
+    appearance: none;
+    background-color: var(--gray-200);
+    color: var(--white-100);
+    padding: var(--gap-1) var(--gap-3);
+    border: none;
+}
+
+[data-actionsheet] > menu:first-of-type > button:first-of-type {
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+[data-actionsheet] > menu:first-of-type > button:last-of-type {
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+}
+
+[data-actionsheet] > menu:last-of-type > button[type='reset'] {
+    border-radius: var(--border-radius);
+}
+
+[data-actionsheet] > [data-actionsheet-snap-sentinel] {
+    scroll-snap-align: start;
+}
+
+[data-actionsheet] > menu:last-of-type {
+    grid-row: 3;
+    scroll-snap-align: end;
+    scroll-margin-block-end: var(--gap-3);
+}

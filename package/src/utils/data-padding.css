@@ -1,0 +1,11 @@
+[data-padding='xy'] {
+    padding: var(--space-sm);
+}
+[data-padding='x'] {
+    padding-left: var(--space-sm);
+    padding-right: var(--space-sm);
+}
+[data-padding='y'] {
+    padding-bottom: var(--space-sm);
+    padding-top: var(--space-sm);
+}

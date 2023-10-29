@@ -1,0 +1,19 @@
+/* Borders as shadows */
+[data-border-shadow='outer'] {
+    box-shadow: 0 0 0 2px #000;
+}
+[data-border-shadow='inner'] {
+    box-shadow: inset 0 0 0 2px #000;
+}
+[data-border-shadow='left'] {
+    box-shadow: inset 2px 0 0 0 #000;
+}
+[data-border-shadow='right'] {
+    box-shadow: inset -2px 0 0 0 #000;
+}
+[data-border-shadow='top'] {
+    box-shadow: inset 0 2px 0 0 #000;
+}
+[data-border-shadow='bottom'] {
+    box-shadow: inset 0 -2px 0 0 #000;
+}

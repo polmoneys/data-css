@@ -1,0 +1,60 @@
+@media print {
+    *,
+    *:before,
+    *:after,
+    *:first-letter,
+    p:first-line,
+    div:first-line {
+        background: transparent !important;
+        color: #000;
+        box-shadow: none !important;
+        text-shadow: none !important;
+        -webkit-print-color-adjust: exact;
+        color-adjust: exact;
+    }
+    body > *:not(#app) {
+        display: none;
+    }
+
+    body {
+        font-size: 8pt;
+    }
+    h1 {
+        page-break-before: always;
+    }
+
+    h2,
+    h3 {
+        break-after: avoid-page;
+    }
+    p {
+        orphans: 2;
+        widows: 2;
+    }
+    .print-no-break-inside {
+        /* apply this class to every component that shouldn't be cut off between to pages of your PDF*/
+        break-inside: avoid;
+    }
+    /* like: */
+    img,
+    table {
+        display: block;
+        break-inside: avoid;
+    }
+
+    .print-break-before {
+        /* apply this class to every component that should always display on next page*/
+        break-before: always;
+    }
+
+    #comments {
+        break-before: always;
+    }
+
+    @page {
+        margin: 20px;
+    }
+    @page :first {
+        margin-top: 250pt;
+    }
+}

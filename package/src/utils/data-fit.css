@@ -1,0 +1,21 @@
+[data-fit='width'] {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+}
+[data-fit='min-width'] {
+    min-width: 0;
+}
+[data-fit='max-width'] {
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+}
+[data-fit='height'] {
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+}
+[data-fit='min-height'] {
+    min-height: 0;
+}

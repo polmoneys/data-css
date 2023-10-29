@@ -1,0 +1,64 @@
+[data-scroller] {
+    display: grid;
+    grid-template-columns: inherit;
+    padding-block: var(--gap-1);
+    overflow-x: scroll;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+    --scroller-gap: 1rem;
+    --scroller-gap-md: calc(var(--scroller-gap) * 2);
+    --scroller-max-width: 60ch;
+    --scroller-max-inline-size: 25rem;
+    --scroller-max-inline-size-sm: 15rem;
+    --scroller-max-inline-size-lg: 35rem;
+    --scroller-snap-align: start;
+}
+
+[data-scroller]::-webkit-scrollbar {
+    inline-size: 0 !important;
+    display: none;
+}
+
+[data-scroller] > div {
+    grid-column: content;
+    display: flex;
+    align-items: center;
+    gap: var(--scroller-gap);
+}
+
+[data-scroller] > div::after {
+    content: '';
+    align-self: stretch;
+    padding-inline-end: max(
+        var(--scroller-gap),
+        (100vw - var(--scroller-max-width)) / 2 - var(--scroller-gap)
+    );
+}
+
+[data-scroller] > div div {
+    flex-shrink: 0;
+    display: flex;
+    scroll-snap-align: var(--scroller-snap-align);
+    inline-size: 100%;
+    max-inline-size: var(--scroller-max-inline-size);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+[data-scroller-item='sm'] {
+    max-inline-size: var(--scroller-max-inline-size-sm) !important;
+}
+
+[data-scroller-item='lg'] {
+    max-inline-size: var(--scroller-max-inline-size-lg) !important;
+}
+
+[data-scroller] picture {
+    width: 100%;
+}
+[data-scroller] img:not([data-avatar-size]) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

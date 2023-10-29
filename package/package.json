@@ -1,0 +1,16 @@
+{
+  "name": "css-package",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "cat ./src/*/**.css > ./dist/merged.css",
+    "clean": "rm -r dist/*"
+  },
+  "devDependencies": {
+    "prettier": "3.0.3",
+    "typescript": "^5.0.2",
+    "vite": "^4.4.5"
+  }
+ 
+}

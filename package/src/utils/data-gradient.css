@@ -1,0 +1,21 @@
+[data-gradient-object] {
+    background: linear-gradient(
+        90deg,
+        #737373 5%,
+        #595959 5%,
+        #595959 95%,
+        #404040 95%
+    );
+}
+
+[data-gradient-object='light'] {
+    background: linear-gradient(
+        90deg,
+        #ccc 10%,
+        #f2f2f2 10%,
+        #f2f2f2 20%,
+        #f2f2f2 20%,
+        #f2f2f2 90%,
+        #d9d9d9 0%
+    );
+}

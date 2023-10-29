@@ -1,0 +1,165 @@
+/* @font-face {
+    font-family: 'HKGrotesk Black';
+    font-display: optional;
+    src:
+        url(../../fonts/BrandonGrotesque-Black.woff) format('woff'),
+        url(../../fonts/BrandonGrotesque-Black.woff2) format('woff2');
+} 
+    [data-font-grotesk] {
+        font-family: 'HKGrotesk Black' !important;
+    }
+*/
+
+:where(html) {
+    --font-size-0: 0.75rem;
+    --font-size-1: 1rem;
+    --font-size-2: 1.333rem;
+    --font-size-3: 1.666rem;
+    --font-size-4: 2rem;
+    --font-size-5: 2.333rem;
+    --font-size-6: 2.999rem;
+    --font-size-fluid-1: clamp(2rem, 9vw, 3.5rem);
+
+    --font-shadow: 0px 3px 0px var(--white-100);
+    --shout: uppercase;
+    --set-solid: 1;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+body {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    font-family: sans-serif;
+    line-height: 1.4;
+    font-size: var(--font-size-2);
+    /* 1rem = 10px */
+    xfont-size: 62.5%;
+}
+
+:is(h1, h2, h3) {
+    word-wrap: break-word;
+    line-height: var(--set-solid);
+    text-wrap: balance;
+}
+
+:is(p) {
+    /* no orphans */
+    text-wrap: pretty;
+}
+
+h1:has(span, b),
+p:has(span, b) {
+    font-size: inherit;
+}
+
+[data-font-all] {
+    user-select: all;
+}
+
+[data-font-dead] {
+    user-select: none;
+}
+
+[data-font-shout] {
+    text-transform: uppercase;
+}
+
+[data-font-center] {
+    text-align: center;
+}
+
+[data-font-emoji] {
+    color: transparent;
+    text-shadow: 1px 1px 0 var(--black-100);
+}
+
+[data-font-emoji='underline'] {
+    text-decoration-line: underline;
+    text-decoration-color: var(--black-100);
+    text-underline-offset: 3px;
+}
+
+[data-font-number] {
+    font-variant-numeric: tabular-nums;
+}
+
+[data-font-clamp] {
+    --clamp-lines: 2;
+    display: -webkit-box;
+    -webkit-line-clamp: var(--clamp-lines);
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+[data-font-ellipsis] > * {
+    display: block;
+    overflow: hidden;
+    padding: var(--gap-1) var(--gap-3);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+[data-font-ellipsis]:hover > * {
+    background-color: inherit;
+    contain: paint;
+    width: fit-content;
+    min-width: 100%;
+}
+
+[data-font],
+[data-font='md'] {
+    font-size: var(--font-size-2);
+}
+[data-font='xs'] {
+    font-size: var(--font-size-0) !important;
+}
+
+[data-font='sm'] {
+    font-size: var(--font-size-1) !important;
+}
+[data-font='lg'] {
+    font-size: var(--font-size-3) !important;
+}
+
+[data-font='xl'] {
+    font-size: var(--font-size-4) !important;
+}
+
+[data-font='xxl'] {
+    font-size: var(--font-size-5) !important;
+}
+
+[data-font='xxxl'] {
+    font-size: var(--font-size-6) !important;
+}
+
+/* with a six-character word limit, three characters before the hyphenation break and two after */
+[data-font='hyphenate'] {
+    -webkit-hyphens: auto;
+    -webkit-hyphenate-limit-before: 3;
+    -webkit-hyphenate-limit-after: 3;
+    -webkit-hyphenate-limit-chars: 6 3 3;
+    -webkit-hyphenate-limit-lines: 2;
+    -webkit-hyphenate-limit-last: always;
+    -webkit-hyphenate-limit-zone: 8%;
+    -moz-hyphens: auto;
+    -moz-hyphenate-limit-chars: 6 3 3;
+    -moz-hyphenate-limit-lines: 2;
+    -moz-hyphenate-limit-last: always;
+    -moz-hyphenate-limit-zone: 8%;
+    -ms-hyphens: auto;
+    -ms-hyphenate-limit-chars: 6 3 3;
+    -ms-hyphenate-limit-lines: 2;
+    -ms-hyphenate-limit-last: always;
+    -ms-hyphenate-limit-zone: 8%;
+    hyphens: auto;
+    hyphenate-limit-chars: 6 3 3;
+    hyphenate-limit-lines: 2;
+    hyphenate-limit-last: always;
+    hyphenate-limit-zone: 8%;
+}

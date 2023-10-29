@@ -1,0 +1,43 @@
+/*
+    Text clamped / Images full width
+*/
+
+[data-article] {
+    display: grid;
+    grid-template-columns: minmax(var(--gap-5), 1fr) minmax(auto, 57ch) minmax(
+            var(--gap-5),
+            1fr
+        );
+
+    & > p,
+    & > :is(h1, h2, h3, h4, h5, h6) {
+        grid-column: 2;
+    }
+
+    & > img {
+        grid-column: 1 / 4;
+        width: 100%;
+        max-width: 100ch;
+        justify-self: center;
+    }
+}
+
+@supports not (selector(&)) {
+    [data-article] {
+        display: grid;
+        grid-template-columns: minmax(var(--gap-5), 1fr) minmax(auto, 57ch) minmax(
+                var(--gap-5),
+                1fr
+            );
+    }
+    [data-article] > img {
+        grid-column: 1 / 4;
+        width: 100%;
+        max-width: 100ch;
+        justify-self: center;
+    }
+    [data-article] > p,
+    [data-article] > :is(h1, h2, h3, h4, h5, h6) {
+        grid-column: 2;
+    }
+}

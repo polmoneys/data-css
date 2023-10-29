@@ -1,0 +1,12 @@
+[data-gap='sm'] {
+    gap: var(--gap-1);
+}
+[data-gap='md'] {
+    gap: var(--gap-2);
+}
+[data-gap='lg'] {
+    gap: var(--gap-3);
+}
+[data-gap='xl'] {
+    gap: var(--gap-4);
+}

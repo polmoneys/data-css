@@ -1,0 +1,88 @@
+[data-list] {
+    --list-gap: var(--gap-2);
+    border: var(--group-border);
+    box-shadow: var(--group-shadow);
+    height: max-content;
+    list-style: none;
+    width: 100%;
+}
+[data-list] > [data-list-item]:not(:last-child) {
+    border-bottom: var(--group-border);
+}
+[data-list] > [data-list-divider=''] {
+    margin-bottom: -0.5em !important;
+    margin-top: -0.5em !important;
+}
+
+/*
+[data-list] > [data-list-item] > div:not([data-list-item-start=''], [data-list-item-end='']) > :not(:first-child) {
+    font-size: 85%;
+    overflow: inherit;
+    text-overflow: inherit;
+    white-space: normal;
+}
+ [data-list] [data-list-item='']:has([data-list-item-end='']) div:first-child > :not(:first-child),
+[data-list] [data-list-item='']:has([data-list-item-start='']) div:nth-child(2) > :not(:first-child),
+[data-list] [data-list-item=''] > div:only-child > :not(:first-child) {
+    font-size: 85%;
+    overflow: inherit;
+    text-overflow: inherit;
+    white-space: normal;
+} */
+
+[data-list-item] {
+    --item-gap: var(--gap-1);
+    grid-gap: var(--item-gap);
+    display: grid;
+    gap: var(--item-gap);
+    grid-template-columns: 1fr;
+    height: max-content;
+    padding: var(--group-actions-whitespace);
+    width: 100%;
+}
+[data-list-item] > :not([data-list-item-start=''], [data-list-item-end='']) {
+    grid-gap: var(--gap-2);
+    display: grid;
+    gap: var(--gap-2);
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+[data-list-item=''] > [data-list-item-start=''],
+[data-list-item=''] > [data-list-item-end=''] {
+    align-items: center;
+    display: grid;
+    justify-items: center;
+    overflow: visible;
+    place-items: center;
+    place-content: center;
+}
+[data-list-item=''] > [data-list-item-start=''] {
+    padding-right: 0;
+}
+[data-list-item=''] > [data-list-item-end=''] {
+    padding-left: 0;
+}
+[data-list-item='']:has([data-list-item-start='']) {
+    grid-template-columns: var(--input-start-width) 1fr;
+}
+[data-list-item='']:has([data-list-item-end='']) {
+    grid-template-columns: 1fr var(--input-end-width);
+}
+[data-list-item='']:has([data-list-item-start='']):has(
+        [data-list-item-end='']
+    ) {
+    grid-template-columns: var(--input-start-width) 1fr var(--input-end-width);
+}
+[data-list-item='']:has([data-list-item-end='']) div:first-child,
+[data-list-item='']:has([data-list-item-start='']) div:nth-child(2),
+[data-list-item=''] > div:only-child {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+@supports not selector(:has(*)) {
+}

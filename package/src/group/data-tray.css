@@ -1,0 +1,45 @@
+[data-tray-overlay] {
+    --tray-overlay: rgba(0, 0, 0, 0.2);
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: var(--transparent);
+    display: none;
+    z-index: var(--z-3);
+    transition: all 0.3s ease-in-out;
+}
+[data-tray-overlay][data-tray-overlay-open='true'] {
+    display: flex;
+    align-self: stretch;
+    background-color: var(--tray-overlay);
+}
+
+[data-tray] {
+    --tray-height: 60vh;
+    --tray-width: 80%;
+    --tray-left-right: calc(calc(100% - 80%) / 2);
+
+    isolation: isolate;
+    position: fixed;
+    z-index: var(--z-max);
+    width: var(--tray-width);
+    left: var(--tray-left-right);
+    right: var(--tray-left-right);
+    bottom: calc(calc(var(--tray-height) + 4vh) * -1);
+    height: min(var(--tray-height), 600px);
+    background-color: var(--white-200);
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease-in-out;
+}
+[data-tray][data-tray-open='true'] {
+    bottom: 0px;
+}
+
+@media (orientation: portrait) {
+    [data-tray] {
+        width: 100%;
+    }
+}

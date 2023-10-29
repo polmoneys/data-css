@@ -1,0 +1,10 @@
+/* https://smolcss.dev */
+[data-block-flow='sm'] > * + * {
+    margin-block-start: var(--block-flow, var(--block-flow-sm));
+}
+[data-block-flow='md'] > * + * {
+    margin-block-start: var(--block-flow, var(--block-flow-md));
+}
+[data-block-flow='lg'] > * + * {
+    margin-block-start: var(--block-flow, var(--block-flow-lg));
+}

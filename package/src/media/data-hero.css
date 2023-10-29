@@ -1,0 +1,12 @@
+/* https://smolcss.dev */
+[data-hero] img {
+    --background-img-brightness: 0.45;
+    --background-img-saturate: 1.25;
+
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    /* decrease brightness to improve text contrast */
+    filter: brightness(var(--background-img-brightness))
+        saturate(var(--background-img-saturate));
+}

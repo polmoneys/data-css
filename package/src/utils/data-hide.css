@@ -1,0 +1,10 @@
+@media (orientation: landscape) {
+    [data-hide='portrait'] {
+        display: none !important;
+    }
+}
+@media (orientation: portrait) {
+    [data-hide='landscape'] {
+        display: none !important;
+    }
+}

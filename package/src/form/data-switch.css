@@ -1,0 +1,35 @@
+[data-switch] {
+    height: var(--comfy-height);
+    min-width: calc(var(--comfy-height) * 2);
+    background-color: var(--white-100);
+    position: relative;
+    color: currentColor;
+    border: none;
+    border-radius: var(--border-radius);
+    box-shadow: var(--input-border);
+    transition:
+        background 0.3s,
+        box-shadow 0.2s;
+}
+
+[data-switch]:after {
+    content: '';
+    height: var(--comfy-height);
+    aspect-ratio: 1;
+    border-top-left-radius: var(--border-radius);
+    border-bottom-left-radius: var(--border-radius);
+    display: flex;
+    background-color: currentColor;
+    transform: translateX(var(--x, 0));
+}
+[data-switch]:checked {
+    --x: var(--comfy-height);
+}
+
+[data-switch]:checked:after {
+    background-color: currentColor;
+    border-top-left-radius: var(--zero);
+    border-bottom-left-radius: var(--zero);
+    border-top-right-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+}

@@ -1,0 +1,27 @@
+input[type='checkbox']:not([data-switch]),
+[data-checkbox] {
+    /* For iOS < 15 */
+    background-color: var(--color-white);
+    color: currentColor;
+    border: none;
+    border-radius: var(--border-radius);
+    box-shadow: var(--input-border);
+    height: var(--comfy-height);
+    width: var(--comfy-height);
+    aspect-ratio: 1;
+}
+
+input[type='checkbox']:not([disabled], [data-switch]):checked,
+[data-checkbox]:not([disabled]):checked {
+    background-color: currentColor;
+}
+input[type='checkbox'][disabled]:not([data-switch]):checked,
+[data-checkbox][disabled]:checked {
+    background-color: var(--color-disabled);
+}
+
+input[type='checkbox']:focus,
+[data-checkbox]:focus {
+    box-shadow: var(--shadow-focus);
+    outline: var(--input-focus-outline);
+}

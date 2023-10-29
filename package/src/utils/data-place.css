@@ -1,0 +1,21 @@
+[data-place-items='center'] {
+    place-items: center;
+}
+[data-place-items='start'] {
+    place-items: start !important;
+}
+[data-place-items='end'] {
+    place-items: end;
+}
+[data-place-items='baseline'] {
+    place-items: baseline;
+}
+[data-place-content='center'] {
+    place-content: center;
+}
+[data-place-content='start'] {
+    place-content: start !important;
+}
+[data-place-content='end'] {
+    place-content: end;
+}

@@ -1,0 +1,54 @@
+[data-mask-text] {
+    --mask-text: var(--black-100);
+}
+
+[data-mask-text='x'] {
+    -webkit-mask-image: linear-gradient(
+        90deg,
+        transparent,
+        var(--mask-text) 15%,
+        var(--mask-text) 85%,
+        transparent 100%
+    );
+    mask-image: linear-gradient(
+        90deg,
+        transparent,
+        var(--mask-text) 15%,
+        var(--mask-text) 85%,
+        transparent 100%
+    );
+}
+
+[data-mask-text='y'] {
+    -webkit-mask-image: linear-gradient(
+        to bottom,
+        transparent,
+        var(--mask-text)
+    );
+    mask-image: linear-gradient(to bottom, transparent, var(--mask-text));
+}
+
+[data-mask-any='y'] {
+    --mask-any-y-min: rgba(0, 0, 0, 0.3);
+    --mask-any-y-max: rgba(0, 0, 0, 0.8);
+    border-image: linear-gradient(var(--mask-any-y-min), var(--mask-any-y-max))
+        50%/50%;
+}
+
+[data-filter='saturate'] {
+    filter: saturate(0.2);
+}
+
+[data-filter='bright'] {
+    filter: brightness(1.3);
+}
+
+[data-filter='logo'] {
+    mix-blend-mode: darken;
+    /* difference overlay */
+    filter: grayscale(100%) contrast(1%);
+    &:hover {
+        mix-blend-mode: normal;
+        filter: none;
+    }
+}

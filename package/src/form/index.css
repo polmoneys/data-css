@@ -1,0 +1,49 @@
+:is(
+        button,
+        input[type='search'],
+        input[type='text'],
+        input[type='radio'],
+        input[type='checkbox'],
+        textarea,
+        select
+    ) {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    font: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    border-style: solid;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    /* Not removed via appearance */
+    margin: 0;
+}
+
+label {
+    font-size: var(--font-size-2);
+    min-width: calc(var(--comfy-width) / 2.5);
+}
+
+fieldset {
+    border-color: var(--transparent);
+}
+
+fieldset > *:not(*:last-child) {
+    margin-bottom: var(--gap-1);
+}
+
+:is(button, input, textarea, select, range)[disabled] {
+    opacity: var(--disabled-opacity);
+    color: var(--color-disabled);
+    cursor: not-allowed;
+}
+
+/* 
+    Mouse only
+    .element:focus:not(:focus-visible) {
+        outline: none;
+    } 
+*/

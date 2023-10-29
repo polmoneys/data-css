@@ -1,0 +1,86 @@
+table,
+[data-table] {
+    /* border-collapse: collapse;
+    border: 0; */
+    border-spacing: 0;
+    width: 100%;
+}
+
+th,
+td {
+    border: var(--border-width) solid var(--transparent);
+    background-clip: padding-box;
+    scroll-snap-align: start;
+}
+tbody tr:last-child th,
+tbody tr:last-child td {
+    border-bottom: 0;
+}
+thead {
+    z-index: var(--z-max);
+    position: relative;
+}
+th,
+td {
+    border: var(--border-width) solid currentColor;
+}
+
+th,
+td {
+    padding: var(--gap-3);
+    min-width: 10em;
+    text-align: left;
+    margin: 0;
+    border-top-width: 0;
+    border-left-width: 0;
+}
+thead th {
+    z-index: var(--z-3);
+    position: sticky;
+    top: 0;
+    border-top: 0;
+    background-clip: padding-box;
+    background-color: var(--gray-200);
+}
+
+tbody td {
+    background-clip: padding-box;
+    border-left: 0;
+}
+tbody {
+    z-index: var(--z-2);
+    position: relative;
+    white-space: nowrap;
+}
+thead tr th:first-of-type,
+tbody tr td:first-of-type {
+    position: sticky;
+    background-color: var(--gray-300);
+    left: 0;
+}
+thead tr th:first-of-type {
+    background-color: var(--gray-200);
+}
+thead tr th:first-of-type {
+    z-index: var(--z-max);
+}
+
+tbody tr td:first-of-type {
+    z-index: var(--z-1);
+}
+
+tbody td:nth-child(2n) {
+    background-color: var(--white-200);
+}
+th:last-child,
+td:last-child {
+    border-right-width: 0;
+}
+
+tr:last-child td {
+    border-bottom-width: 0;
+}
+thead tr th:first-of-type,
+tbody tr td:first-of-type {
+    min-width: 360px;
+}

@@ -1,0 +1,12 @@
+[data-margin-auto='top'] {
+    margin-top: auto;
+}
+[data-margin-auto='bottom'] {
+    margin-bottom: auto;
+}
+[data-margin-auto='left'] {
+    margin-left: auto;
+}
+[data-margin-auto='right'] {
+    margin-right: auto;
+}

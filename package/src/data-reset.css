@@ -1,0 +1,113 @@
+*,
+:after,
+:before {
+    box-sizing: border-box;
+    color: currentColor;
+}
+* {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-delay: -1ms;
+        animation-duration: 1ms;
+        animation-iteration-count: 1;
+        background-attachment: initial;
+        scroll-behavior: auto;
+        transition-delay: 0s;
+        transition-duration: 0s;
+    }
+}
+
+html {
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    -webkit-overflow-scrolling: touch;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+body {
+    overflow-y: scroll;
+    width: 100%;
+    height: 100%;
+    block-size: 100%;
+    inline-size: 100%;
+}
+@supports (scrollbar-gutter: stable) {
+    body {
+        overflow-y: auto;
+        scrollbar-gutter: stable;
+    }
+}
+
+a {
+    hyphens: none;
+    text-decoration: underline;
+    text-decoration-skip-ink: auto;
+    text-decoration-thickness: 0.1em;
+    text-underline-offset: 0.09em;
+    outline: none;
+}
+
+a:is(:visited, :hover) {
+    touch-action: manipulation;
+}
+
+a[target='_blank']:after {
+    content: 'external link';
+    width: 1px !important;
+    height: 1px !important;
+    margin: -1px !important;
+    border: 0 !important;
+    padding: 0 !important;
+    clip-path: inset(100%) !important;
+    clip: rect(0 0 0 0) !important;
+    overflow: hidden !important;
+    position: absolute !important;
+    white-space: nowrap !important;
+}
+
+:is(a, button) {
+    cursor: pointer;
+}
+
+:is(button:not([data-button])) {
+    padding: var(--gap-1) var(--gap-3) !important;
+}
+
+:is(button:focus) {
+    outline: var(--input-focus-outline);
+    box-shadow: var(--shadow-focus);
+}
+
+[hidden] {
+    display: none !important;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+img {
+    border: 0;
+    border-style: none;
+    max-width: 100%;
+    height: auto;
+    background-repeat: no-repeat;
+    vertical-align: middle;
+    shape-margin: 0.75rem;
+}
+
+@media (forced-colors: active) {
+    svg {
+        forced-color-adjust: auto;
+    }
+}
+
+@media (prefers-reduced-data: no-preference) {
+    /* user does not prefers to reduce data so go wild*/
+}

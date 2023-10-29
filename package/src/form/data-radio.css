@@ -1,0 +1,30 @@
+[data-radio],
+input[type='radio'] {
+    /* For iOS < 15 */
+    /* Not removed via appearance */
+    background-color: var(--color-white);
+    border: none;
+    border-radius: var(--border-radius);
+    box-shadow: var(--input-border);
+    color: currentColor;
+    height: var(--comfy-height);
+    width: var(--comfy-height);
+    aspect-ratio: 1;
+    border-radius: 50%;
+}
+
+input[type='radio']:not([disabled]):checked,
+[data-radio]:not([disabled]):checked {
+    background-color: currentColor;
+}
+
+input[type='radio'][disabled],
+[data-radio][disabled]:checked {
+    background-color: var(--color-disabled);
+}
+
+input[type='radio']:focus,
+[data-radio]:focus {
+    box-shadow: var(--shadow-focus);
+    outline: var(--input-focus-outline);
+}

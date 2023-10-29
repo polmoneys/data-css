@@ -1,0 +1,141 @@
+[data-input] {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+[data-input]:has([data-input-start]) {
+    grid-template-columns: var(--input-start-width) 1fr;
+}
+
+[data-input]:has([data-input-end]) {
+    grid-template-columns: 1fr var(--input-end-width);
+}
+
+[data-input]:has([data-input-start]):has([data-input-end]) {
+    grid-template-columns: var(--input-start-width) 1fr var(--input-end-width);
+}
+
+/* Temporary fix as @supports not (selector(&)) seems to fail to build  */
+[data-input]:has([data-input-start]):focus-within,
+[data-input]:has([data-input-end]):focus-within,
+[data-input]:has([data-input-start]):has([data-input-end]):focus-within {
+    box-shadow: var(--shadow-focus);
+    outline: var(--input-focus-outline);
+}
+[data-input]:has([data-input-start]) input,
+[data-input]:has([data-input-end]) input,
+[data-input]:has([data-input-start]):has([data-input-end]) input {
+    box-shadow: none !important;
+}
+/* Temporary fix as @supports not (selector(&)) seems to fail to build  */
+
+[data-input]:has([data-input-start]),
+[data-input]:has([data-input-end]),
+[data-input]:has([data-input-start]):has([data-input-end]) {
+    box-shadow: var(--input-border);
+    transition: 180ms box-shadow ease-in-out;
+    border-radius: var(--border-radius);
+
+    &:focus-within {
+        box-shadow: var(--shadow-focus);
+        outline: var(--input-focus-outline);
+    }
+
+    & input {
+        box-shadow: none;
+    }
+}
+
+@supports not (selector(&)) {
+    [data-input]:has([data-input-start]):focus-within,
+    [data-input]:has([data-input-end]):focus-within,
+    [data-input]:has([data-input-start]):has([data-input-end]):focus-within {
+        box-shadow: var(--shadow-focus);
+        outline: var(--input-focus-outline);
+    }
+    [data-input]:has([data-input-start]) input,
+    [data-input]:has([data-input-end]) input,
+    [data-input]:has([data-input-start]):has([data-input-end]) input {
+        box-shadow: none !important;
+    }
+}
+
+@supports not selector(:has(*)) {
+}
+
+[data-input-start],
+[data-input-end] {
+    align-self: center;
+}
+
+[data-input] input,
+[data-input] textarea {
+    font-size: var(--input-font-size);
+    padding: 0 var(--gap-3);
+    border: none;
+    border-radius: var(--border-radius);
+    box-shadow: var(--input-border);
+    transition: 180ms box-shadow ease-in-out;
+}
+
+[data-input-start],
+[data-input-end] {
+    width: var(--input-start-width);
+    place-items: center;
+}
+
+[data-input-end] {
+    width: var(--input-end-width);
+}
+
+[data-input] input:focus,
+[data-input] textarea:focus {
+    box-shadow: var(--shadow-focus);
+    outline: var(--input-focus-outline);
+}
+
+[data-input] input:not(textarea) {
+    line-height: 1;
+    height: var(--comfy-height);
+}
+
+[data-input] textarea {
+    resize: vertical;
+    /* form-sizing: content;K */
+    caret: bar;
+    caret-color: var(--color-focus);
+}
+[data-input] input[disabled] {
+    color: currentColor;
+}
+[data-input] input[readonly] {
+    border-style: dotted;
+    box-shadow: none;
+    cursor: not-allowed;
+    color: currentColor;
+}
+
+input[type='file'] {
+    padding-left: 0;
+    max-width: 100%;
+}
+input[type='file']::file-selector-button {
+    padding: 0 var(--gap-3);
+    height: 100%;
+    border: thin solid transparent;
+    border-radius: 0;
+}
+
+input[type='date'] {
+    background-color: var(--transparent);
+}
+
+input[type='search'] {
+    caret-color: currentColor;
+}
+
+input[type='search']::-webkit-calendar-picker-indicator {
+    color: currentColor;
+}
+input[type='search']::-webkit-clear-button {
+    color: currentColor;
+}

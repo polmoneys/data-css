@@ -1,0 +1,17 @@
+[data-tabs] {
+    display: grid;
+    grid-template-areas: 'overlap';
+
+    &[data-tabs='center'] {
+        place-items: center;
+    }
+
+    & [data-tab-visible='false'] {
+        visibility: hidden;
+        pointer-events: none;
+    }
+}
+
+[data-tabs] > * {
+    grid-area: overlap;
+}

@@ -1,0 +1,142 @@
+[data-paper=''] {
+    background-color: var(--gray-300);
+
+    &[data-paper-outline] {
+        background-color: var(--transparent);
+        border: var(--border-width) solid currentColor;
+        color: currentColor;
+    }
+
+    /* 
+    if within 4px of the full viewport size, 
+    remove border radius.
+     */
+    border-radius: max(
+        0px,
+        min(var(--border-radius), calc((100vw - 4px - 100%) * 9999))
+    );
+
+    & [data-avatar-size] {
+        box-shadow: var(--shadow-spread) var(--black-100);
+    }
+
+    & path,
+    & polygon {
+        fill: var(--black-100);
+    }
+
+    &::selection {
+    }
+
+    &::-webkit-input-placeholder {
+        color: var(--black-100) !important;
+    }
+    &::-ms-input-placeholder {
+        color: var(--black-100) !important;
+    }
+}
+
+[data-paper='accent'] {
+    background-color: var(--color-focus);
+    color: var(--white-100);
+
+    &[data-paper-outline] {
+        background-color: var(--transparent);
+        border: var(--border-width) solid var(--color-focus);
+        color: var(--color-focus);
+    }
+
+    &[data-paper-color] {
+        color: var(--color-focus);
+        background-color: var(--transparent);
+    }
+
+    /* 
+    if within 4px of the full viewport size, 
+    remove border radius.
+     */
+    border-radius: max(
+        0px,
+        min(var(--border-radius), calc((100vw - 4px - 100%) * 9999))
+    );
+
+    & [data-avatar-size] {
+        box-shadow: var(--shadow-spread) var(--black-100);
+    }
+
+    & path,
+    & polygon {
+        fill: var(--white-100);
+    }
+
+    &[data-paper-outline] path,
+    &[data-paper-outline] polygon {
+        fill: var(--color-focus);
+    }
+    &::selection {
+    }
+
+    &::-webkit-input-placeholder {
+        color: var(--white-100) !important;
+    }
+    &::-ms-input-placeholder {
+        color: var(--white-100) !important;
+    }
+}
+
+[data-paper='error'] {
+    background-color: var(--error-100);
+    color: var(--white-100);
+
+    &[data-paper-outline] {
+        background-color: var(--transparent);
+        border: var(--border-width) solid var(--error-100);
+        color: var(--error-100);
+    }
+
+    &[data-paper-color] {
+        color: var(--error-100);
+        background-color: var(--transparent);
+    }
+    /* 
+    if within 4px of the full viewport size, 
+    remove border radius.
+     */
+    border-radius: max(
+        0px,
+        min(var(--border-radius), calc((100vw - 4px - 100%) * 9999))
+    );
+
+    & [data-avatar-size] {
+        box-shadow: var(--shadow-spread) var(--black-100);
+    }
+
+    & path,
+    & polygon {
+        fill: var(--white-100);
+    }
+
+    &[data-paper-outline] path,
+    &[data-paper-outline] polygon {
+        fill: var(--error-100);
+    }
+
+    &::selection {
+    }
+
+    &::-webkit-input-placeholder {
+        color: var(--white-100) !important;
+    }
+    &::-ms-input-placeholder {
+        color: var(--white-100) !important;
+    }
+}
+
+[data-paper='transparent'] {
+    background-color: var(--transparent) !important;
+    box-shadow: none !important;
+
+    &:focus-within svg {
+        transform: scale(1.6);
+    }
+}

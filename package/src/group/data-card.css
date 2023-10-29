@@ -1,0 +1,72 @@
+[data-card] {
+    background-color: var(--group-bg);
+    border: var(--group-border);
+    box-shadow: var(--group-shadow);
+    hyphens: auto;
+    position: relative;
+    word-break: break-word;
+}
+
+[data-card],
+[data-card] div:first-of-type {
+    display: flex;
+    flex-direction: column;
+}
+
+[data-card] div:first-of-type {
+    flex-grow: 1;
+    gap: var(--gap-3);
+    padding: var(--group-content-whitespace);
+}
+
+[data-card] div:last-of-type:not(:only-of-type) {
+    margin-top: auto;
+    padding: var(--group-content-whitespace);
+}
+
+[data-card] div:last-of-type:not(:only-of-type) button + * {
+    margin-left: auto;
+}
+
+[data-card] img,
+[data-card] picture {
+    width: 100%;
+}
+
+[data-card] img {
+    background-repeat: no-repeat;
+    border: 0;
+    border-style: none;
+    height: auto;
+    max-width: 100%;
+    object-fit: cover;
+}
+
+[data-card]::selection {
+    background-color: var(--group-selection-bg);
+    color: var(--group-selection-color);
+}
+
+@supports not (selector(:has(*))) {
+    [data-card] [data-card-title] + [data-card-content] {
+        margin-top: var(--gap-3);
+    }
+}
+@supports selector(:has(*)) {
+    [data-card] [data-card-title]:has(+ [data-card-content]) {
+        margin-bottom: var(--gap-3);
+    }
+    [data-card]:has(img),
+    [data-card]:has(img) div {
+        padding: var(--zero);
+    }
+    [data-card]:has(img) picture {
+        display: flex;
+        flex-grow: 1;
+        position: relative;
+        width: 100%;
+    }
+    [data-card]:has(img) picture + div {
+        padding: var(--group-content-whitespace);
+    }
+}
