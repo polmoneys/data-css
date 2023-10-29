@@ -1,0 +1,10 @@
+{
+  "name": "css-project",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "package",
+      "demo"
+    ]
+  }
+}

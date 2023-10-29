@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="preload" as="image/svg+xml" href="/src/fonts/sprite.svg" />
+        <title>CSS</title>
+    </head>
+    <body>
+        <nav id="main-nav" aria-label="Main Navigation">
+            <ul>
+                <li>
+                    <a href="./" data-font-emoji>🏠 </a>
+                </li>
+                <li>
+                    <a href="https://github.com/polmoneys/nonai-css">Github</a>
+                </li>
+            </ul>
+        </nav>
+        <div id="controls">
+            <h2></h2>
+            <nav></nav>
+        </div>
+        <main data-padding="y">
+            <section
+                data-container=""
+                data-group="flex"
+                data-flex="column"
+                data-gap="sm"
+            >
+                <header data-group="flex" data-gap="xl">
+                    <h1 data-font-grotesk data-font="lg">CSS for FFF</h1>
+                    <div
+                        id="q"
+                        data-margin-auto="left"
+                        data-input=""
+                        style="
+                            --input-start-width: 90px;
+                            --input-end-width: 60px;
+
+                            flex-grow: 1;
+                            max-width: 450px;
+                        "
+                    >
+                        <label
+                            for="text-input"
+                            data-padding="x"
+                            data-input-start=""
+                            >Filter</label
+                        >
+                        <input
+                            id="text-input"
+                            type="text"
+                            autocomplete="off"
+                            placeholder="Ra..."
+                            required
+                        />
+                        <div data-input-end="">
+                            <button
+                                type="button"
+                                data-button="fit"
+                                data-paper="transparent"
+                                id="clear-input"
+                            >
+                                <svg
+                                    width="24"
+                                    height="24"
+                                    focusable="false"
+                                    data-icon
+                                >
+                                    <use href="./sprite.svg#cross" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </header>
+                <article
+                    data-group="flex"
+                    data-flex="column"
+                    data-gap="sm"
+                ></article>
+            </section>
+            <aside data-padding="xy"></aside>
+        </main>
+        <header>
+            <a href="https://polmoneys.com" id="logo">
+                <svg
+                    width="108"
+                    height="126"
+                    viewBox="0 0 108 126"
+                    aria-hidden="true"
+                >
+                    <path
+                        fill="var(--gray-600)"
+                        d="M41.514 23.187L41.38 44.33l-7.002-11.4-7.004-11.404-12.164-.134L3 21.302v83.493h24.24l.09-21.725.135-21.772 7.092 11.581 7.047 11.627v39.143h24.24V84.191l7.093-11.537 7.047-11.536.135 21.86.09 21.817H104V21.302H79.984l-6.958 11.447L66.07 44.15l-.135-21.097L65.845 2h-24.24l-.09 21.187z"
+                    />
+                </svg>
+            </a>
+        </header>
+        <footer data-util="offscreen">
+            <p class="email vcard">
+                <a href="mailto:polmoneys@protonmail.com">Contact</a>
+            </p>
+            <a href="https://github.com/polmoneys">Github </a>
+            <a href="https://twitter.com/polmoneys">Twitter </a>
+        </footer>
+        <div
+            data-tray-overlay
+            data-tray-overlay-open="false"
+            aria-hidden="true"
+        ></div>
+        <div data-tray data-tray-open="false"></div>
+        <script type="module" src="/src/main.ts"></script>
+    </body>
+</html>
