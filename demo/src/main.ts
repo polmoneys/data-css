@@ -60,8 +60,6 @@ import { renderPanel } from './showcase/panel';
 store.subscribe(loop);
 // const unsubscribe = store.subscribe(loop);
 
-// todo: git push -u origin unicorn
-
 function onClear() {
     const input = $('#q input');
     if (input != null) {
