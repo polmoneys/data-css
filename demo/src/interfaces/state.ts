@@ -7,10 +7,8 @@ export const ActionTypes = {
     SET_VARIANT: 'SET_VARIANT',
     SET_VARIANT_PANEL: 'SET_VARIANT_PANEL',
     RESET: 'RESET',
-    UNLOCKED: 'UNLOCKED',
-    TOGGLE_LOADING: 'TOGGLE_LOADING',
     FILTERED: 'FILTERED',
-    VISITED: 'VISITED',
+    SUGGESTIONS: 'SUGGESTIONS',
     SET_KIND: 'SET_KIND',
 } as const;
 
@@ -27,9 +25,7 @@ export interface State {
     group?: Groups;
     variant: Variant;
     variantPanel: VariantPanel;
-    unlocked: Array<any>;
-    loading: any;
     filtered: Snippets;
-    visited: Snippets;
+    suggestions: Snippets;
     kind?: SnippetKind;
 }

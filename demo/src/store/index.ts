@@ -52,10 +52,10 @@ function reducer(state: State = initialState, action: any) {
                 kind: action.payload,
             };
 
-        case ActionTypes.VISITED:
+        case ActionTypes.SUGGESTIONS:
             return {
                 ...state,
-                visited: action.payload,
+                suggestions: action.payload,
             };
         // case ActionTypes.UNLOCKED:
         //     const addition = action.payload;

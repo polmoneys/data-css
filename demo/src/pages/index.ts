@@ -22,7 +22,13 @@ export function renderSnippets(props: SnippetsList) {
 function SnippetsList(props: SnippetsList) {
     const { label, snippets } = props;
     return html`
-        <ul role="list" aria-label=${label} data-group="" data-list="">
+        <ul
+            id="snippets-list"
+            role="list"
+            aria-label=${label}
+            data-group=""
+            data-list=""
+        >
             ${snippets.length === 0
                 ? html` <li data-list-item="">
                       <div><p data-font="lg">No results</p></div>
@@ -35,9 +41,9 @@ function SnippetsList(props: SnippetsList) {
 
 function Item(props: Snippet) {
     const { value, label, kind, description } = props;
+    const { kind: kindStore } = store.getState();
 
     const onSelectKind = (kind: SnippetKind) => {
-        const { kind: kindStore } = store.getState();
         if (kindStore !== kind) {
             dispatch(store, 'SET_KIND', kind);
             const nextFiltered = SNIPPETS.filter(
@@ -59,29 +65,30 @@ function Item(props: Snippet) {
             </li>
         `;
 
+    // data-animation-wiggle
     return html` <li data-list-item="">
-        ${html`<div data-list-item-start="">
+        <div data-list-item-start="">
             <button
                 type="button"
-                data-button="circle"
                 data-paper="transparent"
                 @click=${{ handleEvent: () => onSelectKind(kind) }}
             >
                 ${Shape({
                     ...snippetKindToShape(kind),
                     size: 24,
-                    fill: 'currentColor',
+                    fill:
+                        kind === kindStore ? 'var(--red-100)' : 'currentColor',
                 })}
             </button>
-        </div>`}
+        </div>
         <div data-padding="x">
             <h2>${label}</h2>
-            <p>${description}</p>
+            ${description === '' ? html`` : html` <p>${description}</p>`}
         </div>
-        ${html`<div data-list-item-end="">
+        <div data-list-item-end="">
             <a href=${`?snippet=${value}`}>
                 ${Icon({ d: 'chevronRight', size: 42, label: 'Ico label' })}</a
             >
-        </div>`}
+        </div>
     </li>`;
 }

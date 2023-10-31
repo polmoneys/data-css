@@ -7,11 +7,10 @@ export const initialState: State = {
     group: undefined,
     variant: 'pic',
     variantPanel: 'actions',
-    unlocked: [],
-    loading: true,
+    // unlocked: [],
     filtered: SNIPPETS.filter(
         (snippet) => snippet.hidden === undefined || !snippet.hidden,
     ),
     kind: undefined,
-    visited: [],
+    suggestions: [],
 };

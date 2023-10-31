@@ -29,6 +29,7 @@ import '../../package/src/media/data-hero.css';
 import '../../package/src/media/data-icon.css';
 import '../../package/src/media/data-spinner.css';
 
+import '../../package/src/utils/data-animations.css';
 import '../../package/src/utils/data-block-flow.css';
 import '../../package/src/utils/data-border.css';
 import '../../package/src/utils/data-fit.css';
@@ -54,76 +55,42 @@ import './layout.css';
 import { renderSnippets } from './pages';
 import { renderDetail } from './pages/detail';
 import { $, emptyNode } from './utils';
-import SNIPPETS from './snippets';
 import { renderCard } from './showcase/card';
 import { renderPanel } from './showcase/panel';
-import autocomp from './utils/autocomp';
+import { initialState } from './store/initialState';
+import { renderSearchResults } from './utils/search';
+import { ActionTypes } from './interfaces/state';
 
 store.subscribe(loop);
 // const unsubscribe = store.subscribe(loop);
 
 function onClear() {
-    const input = $('#q input');
+    const input = $('#q');
     if (input != null) {
         (input as HTMLInputElement).value = '';
     }
-    dispatch(store, 'FILTERED', SNIPPETS);
+    dispatch(store, ActionTypes.FILTERED, initialState.filtered);
+    dispatch(store, ActionTypes.SUGGESTIONS, []);
+}
+
+function update(event: Event) {
+    const { filtered } = store.getState();
+    const value = (event.target as HTMLInputElement)?.value;
+
+    const results = filtered.filter((snip) => {
+        return snip.value.startsWith(value.toLowerCase());
+    });
+    if (results.length > 0) {
+        dispatch(store, ActionTypes.FILTERED, results);
+        dispatch(store, ActionTypes.SUGGESTIONS, results);
+    }
 }
 
 function loop() {
     const { filtered } = store.getState();
     const urlParams = new URLSearchParams(window.location.search);
     const snippet = urlParams.get('snippet');
-
-    // search
-    autocomp($('#q') as HTMLInputElement, {
-        onQuery: async (val: string) => {
-            const results = filtered.filter((snip) => {
-                return snip.value.startsWith(val.toLowerCase());
-            });
-
-            if (snippet === null) {
-                dispatch(store, 'FILTERED', results);
-            }
-
-            return [];
-        },
-
-        // Link vs. https://developer.mozilla.org/en-US/docs/Web/API/History/pushState
-        // onSelect: (o: any) => {
-        //     const input = $('#q') as HTMLInputElement;
-        //     if (input != null) {
-        //         input.value = o.value;
-        //     }
-        //     return o.value;
-        // },
-
-        onRender: (o: any) => {
-            if (o.value === '') return;
-            const div = document.createElement('div');
-            div.dataset.list = '';
-            const dot = document.createElement('span');
-            dot.innerHTML = `<svg
-                                    width="28"
-                                    height="28"
-                                    focusable="false"
-                                    data-icon
-                                >
-                                    <use href="./sprite.svg#pin" />
-                                </svg>`;
-            dot.dataset.listItemStart = '';
-            const link = document.createElement('a');
-            link.href = `?snippet=${o.value}`;
-            link.appendChild(document.createTextNode(o.label));
-            const child = document.createElement('div');
-            child.dataset.listItem = '';
-            child.appendChild(dot);
-            child.appendChild(link);
-            div.appendChild(child);
-
-            return child;
-        },
-    });
+    renderSearchResults();
 
     // landing
     if (snippet === null) {
@@ -159,9 +126,10 @@ function loop() {
     }
 }
 
+document.addEventListener('input', update);
 document.addEventListener('DOMContentLoaded', function () {
     // search
-    const btn = document.querySelector('#clear-input');
+    const btn = $('#clear-input');
     if (btn != null) {
         btn.addEventListener('click', onClear);
     }

@@ -24,7 +24,6 @@ const setGroup = (newGroup: Groups) => ({
     type: ActionTypes.SET_GROUP,
     payload: newGroup,
 });
-const toggleTheme = () => ({ type: ActionTypes.TOGGLE_THEME });
 
 // function next(section: boolean | string) {
 //     return { type: ActionTypes.UNLOCKED, payload: section };
@@ -46,8 +45,8 @@ const setFiltered = (snippets: Snippets) => ({
     payload: snippets,
 });
 
-const setVisited = (snippets: Snippets) => ({
-    type: ActionTypes.VISITED,
+const setSuggestions = (snippets: Snippets) => ({
+    type: ActionTypes.SUGGESTIONS,
     payload: snippets,
 });
 
@@ -60,8 +59,6 @@ export const matchActionToFn = (action: keyof typeof ActionTypes) => {
     switch (action) {
         case ActionTypes.SET_ORIENTATION:
             return setOrientation;
-        case ActionTypes.TOGGLE_THEME:
-            return toggleTheme;
         case ActionTypes.SET_GROUP:
             return setGroup;
         case ActionTypes.SET_VARIANT:
@@ -72,8 +69,8 @@ export const matchActionToFn = (action: keyof typeof ActionTypes) => {
         //     return unlocked;
         case ActionTypes.FILTERED:
             return setFiltered;
-        case ActionTypes.VISITED:
-            return setVisited;
+        case ActionTypes.SUGGESTIONS:
+            return setSuggestions;
         case ActionTypes.SET_KIND:
             return setKind;
         default:

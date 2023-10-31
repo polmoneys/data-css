@@ -1,4 +1,8 @@
 /* TODO: deprecate this failed file */
+:is(h1, h2, h3):not([data-list-item] *) {
+    line-height: var(--set-solid);
+}
+
 :root {
     --error-100: #f10aaa;
 }
@@ -241,6 +245,10 @@ input[type='range']:not([data-range])::-moz-range-thumb {
 #main-nav a:not(#main-nav a:first-child) {
     display: inline-flex;
     min-width: calc(var(--comfy-width) / 2);
+}
+
+#main-nav li:hover {
+    animation: wiggle 400ms 50ms forwards ease-in-out;
 }
 
 #main-nav a:focus,
