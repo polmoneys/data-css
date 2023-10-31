@@ -23,13 +23,11 @@ const SNIPPETS_FORM: Snippets = [
         description: 'Start and End slots',
     },
     {
-        // TODO:
         label: 'Progress',
         value: 'progress',
         kind: 'form',
         src: 'https://github.com/polmoneys/data-css',
         description: '',
-        hidden: true,
     },
     {
         label: 'Radio',

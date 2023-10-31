@@ -1,4 +1,7 @@
 /* TODO: deprecate this failed file */
+:root {
+    --error-100: #f10aaa;
+}
 #controls {
     display: none;
 }
@@ -255,4 +258,51 @@ input[type='range']:not([data-range])::-moz-range-thumb {
     flex-direction: column;
     place-items: center;
     text-decoration: none;
+}
+[data-paper-test] {
+    width: 50vmin;
+    height: 50vmin;
+
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.25);
+
+    overflow: hidden;
+
+    border-radius: 6px;
+    border: 3px solid;
+    position: relative;
+
+    &:before,
+    &:after {
+        content: '';
+        position: relative;
+        display: block;
+        z-index: 1;
+    }
+
+    &:before {
+        border-bottom: 3px solid;
+        width: 100%;
+        height: 5vmin;
+        background:
+            radial-gradient(circle, currentColor 50%, transparent 52.5%) center
+                left 0.5vmin / 3vmin 3vmin no-repeat,
+            radial-gradient(circle, currentColor 50%, transparent 52.5%) center
+                left 3.5vmin / 3vmin 3vmin no-repeat,
+            radial-gradient(circle, currentColor 50%, transparent 52.5%) center
+                left 6.5vmin / 3vmin 3vmin no-repeat,
+            linear-gradient(rgba(#fff, 0.9), rgba(#fff, 0.9)),
+            currentColor;
+    }
+
+    &:after {
+        display: none;
+        background: rgba(#fff, 0.75);
+        height: 2.75vmin;
+        width: 27vmin;
+        border-radius: 2vmin;
+        position: absolute;
+        top: 0.8vmin;
+        left: 11vmin;
+        padding: 0.5vmin 2vmin;
+    }
 }

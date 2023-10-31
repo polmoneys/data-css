@@ -9,7 +9,9 @@ export const initialState: State = {
     variantPanel: 'actions',
     unlocked: [],
     loading: true,
-    filtered: SNIPPETS,
+    filtered: SNIPPETS.filter(
+        (snippet) => snippet.hidden === undefined || !snippet.hidden,
+    ),
     kind: undefined,
     visited: [],
 };

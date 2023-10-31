@@ -134,8 +134,10 @@ export function Input() {
                         <input
                             id="disabled-input"
                             value="Some datum"
-                            type="text"
+                            type="email"
                             disabled
+                            inputmode="text"
+                            multiple
                         />
                     </div>
                 </div>

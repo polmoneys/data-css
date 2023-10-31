@@ -28,10 +28,27 @@ const icons: Array<IconName> = [
 export function Icons() {
     return html`
         <h3 data-font>Sprited Icons</h3>
-        <div data-group="flex" data-gap="xl" data-place-items="baseline">
+        <div
+            data-group="flex"
+            data-flex-wrap
+            data-gap="xl"
+            data-place-items="baseline"
+        >
             ${icons.map(
-                (icon) => html`${Icon({ d: icon, label: icon, size: 24 })}`,
+                (icon) => html`${Icon({ d: icon, label: icon, size: 48 })}`,
             )}
+        </div>
+        <div data-spinner style="--spinner-count: 10">
+            <span style="--spinner-index: 0"></span>
+            <span style="--spinner-index: 1"></span>
+            <span style="--spinner-index: 2"></span>
+            <span style="--spinner-index: 3"></span>
+            <span style="--spinner-index: 4"></span>
+            <span style="--spinner-index: 5"></span>
+            <span style="--spinner-index: 6"></span>
+            <span style="--spinner-index: 7"></span>
+            <span style="--spinner-index: 8"></span>
+            <span style="--spinner-index: 9"></span>
         </div>
     `;
 }
@@ -71,12 +88,12 @@ export function Icon({
 }) {
     // {...(label === "" && { "aria-hidden": "true" })}
     return svg`<svg
-      width=${size}
-      height=${size}
+      width="${size}px"
+      height="${size}px"
       focusable="false"
       data-icon
       aria-labelledby="${label}-icon"
-      
+    viewbox="0 0 ${size} ${size}"
     >
       <title id="${label}-icon">{label} </title>
       <use href="./sprite.svg#${d}" />

@@ -1,5 +1,4 @@
 import { dispatch, store } from './store';
-import { autocomp } from '@knadh/autocomp';
 
 import '../../package/src/data-reset.css';
 import '../../package/src/data-tokens.css';
@@ -9,6 +8,7 @@ import '../../package/src/form/data-button.css';
 import '../../package/src/form/data-checkbox.css';
 import '../../package/src/form/data-input.css';
 import '../../package/src/form/data-radio.css';
+import '../../package/src/form/data-progress.css';
 import '../../package/src/form/data-range.css';
 import '../../package/src/form/data-select.css';
 import '../../package/src/form/data-switch.css';
@@ -27,6 +27,7 @@ import '../../package/src/group/data-tray.css';
 import '../../package/src/media/data-avatar.css';
 import '../../package/src/media/data-hero.css';
 import '../../package/src/media/data-icon.css';
+import '../../package/src/media/data-spinner.css';
 
 import '../../package/src/utils/data-block-flow.css';
 import '../../package/src/utils/data-border.css';
@@ -56,6 +57,7 @@ import { $, emptyNode } from './utils';
 import SNIPPETS from './snippets';
 import { renderCard } from './showcase/card';
 import { renderPanel } from './showcase/panel';
+import autocomp from './utils/autocomp';
 
 store.subscribe(loop);
 // const unsubscribe = store.subscribe(loop);
@@ -74,18 +76,17 @@ function loop() {
     const snippet = urlParams.get('snippet');
 
     // search
-    autocomp($('#q'), {
-        // https://github.com/knadh/autocomp.js/blob/master/docs/index.html
-        onQuery: async (val: any) => {
-            const results = filtered.filter((snip) =>
-                snip.value.startsWith(val.toLowerCase()),
-            );
+    autocomp($('#q') as HTMLInputElement, {
+        onQuery: async (val: string) => {
+            const results = filtered.filter((snip) => {
+                return snip.value.startsWith(val.toLowerCase());
+            });
 
             if (snippet === null) {
                 dispatch(store, 'FILTERED', results);
             }
 
-            return results.length === 0 ? SNIPPETS : results;
+            return [];
         },
 
         // Link vs. https://developer.mozilla.org/en-US/docs/Web/API/History/pushState
@@ -98,6 +99,7 @@ function loop() {
         // },
 
         onRender: (o: any) => {
+            if (o.value === '') return;
             const div = document.createElement('div');
             div.dataset.list = '';
             const dot = document.createElement('span');

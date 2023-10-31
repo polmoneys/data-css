@@ -89,3 +89,62 @@ body:has(option[value='pony']:checked) {
     --body-background: #ee458e;
     --main-background: #f4b6d2;
 }
+
+/* pre/code */
+
+[class*='highlight-'] {
+    border-radius: 3px;
+    margin: -3px;
+    padding: 3px;
+}
+.highlight-blue:hover {
+    background: #00f;
+}
+.highlight-orange:hover {
+    background: #ffa500;
+}
+.highlight-green:hover {
+    background: #008000;
+}
+
+/* 👈 THIS  before </span> should work*/
+/*
+<code style="--start: 13;">
+	<span class="line">code {</span>
+	<span class="line">    counter-reset: step;</span>
+	<span class="line">    counter-increment: step calc(var(--start, 1) - 1); </span>
+	<span class="line">}</span>
+	<span class="line"></span>
+	<span class="line">code .line::before {</span>
+	<span class="line">    content: counter(step);</span>
+	<span class="line">    counter-increment: step;</span>
+	<span class="line">    display: inline-block;</span>	
+	<span class="line">}</span>
+</code>
+*/
+
+code {
+    counter-reset: step;
+    counter-increment: step calc(var(--start, 1) - 1); /* 👈 THIS */
+}
+
+code .line::before {
+    content: counter(step);
+    counter-increment: step;
+    width: 1.5rem;
+    padding-right: 0.5rem;
+    margin-right: 0.5rem;
+    display: inline-block;
+    text-align: right;
+    color: rgba(115, 138, 148, 0.4);
+    border-right: 1px solid currentColor;
+}
+
+code {
+    padding: 0.3rem 0;
+    display: block;
+    background: #f6f8fa;
+}
+code .line {
+    display: block;
+}

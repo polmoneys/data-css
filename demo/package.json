@@ -15,7 +15,6 @@
         "vite": "^4.4.5"
     },
     "dependencies": {
-        "@knadh/autocomp": "^0.1.1",
         "lit-html": "^2.8.0",
         "redux": "^4.2.1",
         "redux-thunk": "^2.4.2"

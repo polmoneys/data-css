@@ -23,9 +23,12 @@ function SnippetsList(props: SnippetsList) {
     const { label, snippets } = props;
     return html`
         <ul role="list" aria-label=${label} data-group="" data-list="">
-            ${snippets
-                .filter((snippet) => !snippet.hidden)
-                .map((snippet) => Item(snippet))}
+            ${snippets.length === 0
+                ? html` <li data-list-item="">
+                      <div><p data-font="lg">No results</p></div>
+                  </li>`
+                : html``}
+            ${snippets.map((snippet) => Item(snippet))}
         </ul>
     `;
 }

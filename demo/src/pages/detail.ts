@@ -19,6 +19,7 @@ import { Unit } from '../showcase/unit';
 import { Line } from '../utils/skeletons';
 import { Tokens } from '../showcase/tokens';
 import { Soon } from '../utils/soon';
+import { Progress } from '../showcase/progress';
 
 export function renderDetail(value: string) {
     const attach = document.querySelector<HTMLDivElement>('article');
@@ -46,6 +47,8 @@ function getDetail(value: string) {
             return html`${Range()}`;
         case 'select':
             return html`${Select()}`;
+        case 'progress':
+            return html`${Progress()}`;
         case 'switch':
             return html`${Switch()}`;
         // media
