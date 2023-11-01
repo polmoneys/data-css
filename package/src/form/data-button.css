@@ -78,6 +78,6 @@ button[data-button='transparent'] {
     border: none !important;
 }
 
-/* [data-button] svg {
+[data-button] svg {
     pointer-events: none;
-} */
+}

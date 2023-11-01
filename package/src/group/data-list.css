@@ -43,7 +43,7 @@
 [data-list-item] > :not([data-list-item-start=''], [data-list-item-end='']) {
     grid-gap: var(--gap-2);
     display: grid;
-    gap: var(--gap-2);
+    gap: var(--gap-1);
     min-width: 0;
     overflow: hidden;
     text-overflow: ellipsis;

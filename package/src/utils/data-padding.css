@@ -1,3 +1,11 @@
+/* https://moderncss.dev/ */
+
+[data-padding] {
+    --space-sm: clamp(0.7rem, 1.5%, 1.1rem);
+    --space-md: clamp(1rem, 3%, 1.5rem);
+    --space-lg: clamp(1.5rem, 6%, 3rem);
+}
+
 [data-padding='xy'] {
     padding: var(--space-sm);
 }

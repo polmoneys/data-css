@@ -1,3 +1,10 @@
+[data-ratio] {
+    --ratio-square: 1;
+    --ratio-portrait: 9/16;
+    --ratio-landscape: 16/9;
+    --ratio-ultrawide: 18/5;
+}
+
 @supports (aspect-ratio: 1) {
     [data-ratio] {
         width: 100%;

@@ -1,0 +1,24 @@
+[data-paper='accent'] {
+    background-color: var(--purple-100);
+    color: var(--white-100);
+
+    &[data-paper-color] {
+        color: var(--purple-100);
+        background-color: var(--transparent);
+    }
+
+    &[data-paper-outline] {
+        background-color: var(--transparent);
+        border: var(--border-width) solid var(--purple-100);
+        color: var(--purple-100);
+    }
+
+    &::-webkit-input-placeholder,
+    & > *::-webkit-input-placeholder {
+        color: var(--white-100);
+    }
+    &::-ms-input-placeholder,
+    & > *::-ms-input-placeholder {
+        color: var(--white-100);
+    }
+}

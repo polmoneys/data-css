@@ -35,6 +35,26 @@
         50%/50%;
 }
 
+/* hint: works with [data-avatar] */
+[data-blur='inset']:before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    --blur-inset-radius: 40px;
+    --blur-inset: 30%;
+    --transition: 30%;
+    --blur: 15px;
+    --_blur-mask: radial-gradient(
+            #0000 calc(71% - var(--blur-inset) - var(--transition)),
+            #000 calc(72% - var(--blur-inset))
+        )
+        49.9% / var(--blur-inset-radius);
+    -webkit-mask-box-image: var(--_blur-mask);
+    mask-border: var(--_blur-mask);
+    backdrop-filter: blur(var(--blur));
+    border-radius: var(--blur-inset-radius);
+}
+
 [data-filter='saturate'] {
     filter: saturate(0.2);
 }

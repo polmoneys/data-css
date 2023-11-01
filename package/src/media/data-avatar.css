@@ -5,6 +5,7 @@
     width: var(--avatar--size);
     height: var(--avatar--size);
     flex-grow: 0;
+    box-shadow: var(--shadow);
 }
 
 [data-avatar-size='sm'] {

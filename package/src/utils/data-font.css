@@ -42,8 +42,11 @@ body {
 
 :is(h1, h2, h3) {
     word-wrap: break-word;
-    line-height: var(--set-solid);
     text-wrap: balance;
+}
+
+:is(h1, h2, h3):not([data-list-item] *) {
+    line-height: var(--set-solid);
 }
 
 :is(p) {
@@ -79,8 +82,16 @@ p:has(span, b) {
 
 [data-font-emoji='underline'] {
     text-decoration-line: underline;
-    text-decoration-color: var(--black-100);
-    text-underline-offset: 3px;
+    text-decoration-color: currentColor;
+    text-underline-offset: 5px;
+}
+
+[data-font-emoji='green-to-red'] {
+    filter: hue-rotate(-120deg);
+}
+
+[data-font-emoji='red-to-green'] {
+    filter: hue-rotate(120deg);
 }
 
 [data-font-number] {

@@ -1,0 +1,52 @@
+/* 
+
+    Candidates
+    ----------
+    1 - Override default focus styles
+        &:is([data-button], [data-checkbox], [data-radio], [data-switch]):focus {
+            box-shadow: var(--shadow-focus-spread) SOME_COLOR;
+        }
+    2 - Global changes
+        &:focus-within {
+        }
+    3 - Text selection
+        &::selection {
+        }
+    
+*/
+
+[data-paper] {
+    /* 
+    if within 4px of the full viewport size, 
+    remove border radius.
+     */
+    --paper-border-radius: max(
+        0px,
+        min(var(--border-radius), calc((100vw - 4px - 100%) * 9999))
+    );
+    border-radius: var(--paper-border-radius);
+}
+
+[data-paper=''] {
+    background-color: var(--gray-300);
+
+    &[data-paper-outline] {
+        background-color: var(--transparent);
+        border: var(--border-width) solid currentColor;
+        color: currentColor;
+    }
+
+    &::-webkit-input-placeholder,
+    & > *::-webkit-input-placeholder {
+        color: var(--black-100);
+    }
+    &::-ms-input-placeholder,
+    & > *::-ms-input-placeholder {
+        color: var(--black-100);
+    }
+}
+
+[data-paper='transparent'] {
+    background-color: var(--transparent) !important;
+    box-shadow: none !important;
+}

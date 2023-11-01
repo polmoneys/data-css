@@ -1,0 +1,29 @@
+[data-spinner] {
+    --spinner-count: 10;
+    height: calc(var(--comfy-width) / 2);
+    width: calc(var(--comfy-width) / 2);
+    position: relative;
+    animation: spin 0.5s infinite steps(var(--spinner-count));
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+[data-spinner] span {
+    position: absolute;
+    height: 25%;
+    width: 5%;
+    background: currentColor;
+    border-radius: var(--border-radius);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+        rotate(
+            calc(((360 / var(--spinner-count)) * var(--spinner-index)) * 1deg)
+        )
+        translate(0, 100%);
+    opacity: calc(var(--spinner-index) / var(--spinner-count));
+}

@@ -108,6 +108,17 @@ img {
     }
 }
 
-@media (prefers-reduced-data: no-preference) {
-    /* user does not prefers to reduce data so go wild*/
+@media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+        scroll-behavior: auto;
+    }
+    * {
+        animation-delay: -1ms;
+        animation-duration: 1ms;
+        animation-iteration-count: 1;
+        background-attachment: initial;
+        scroll-behavior: auto;
+        transition-delay: 0s;
+        transition-duration: 0s;
+    }
 }

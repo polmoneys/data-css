@@ -1,32 +1,60 @@
+/* 
+progress[value="50"] {
+	accent-color: lime;
+}
+*/
+
 progress[value] {
-    --w: 200px;
-    --b:
-    /* if < 30% "red" */ linear-gradient(red, red) 0 /
-            max(0px, var(--w) * 0.3 - 100%) 1px,
-        /* else if < 60% "orange" */ linear-gradient(orange, orange) 0 /
-            max(0px, var(--w) * 0.6 - 100%) 1px,
-        /* else "green" */ green;
+    --progress-width: 200px;
+    --progress-radius: 50px;
+    --progress-bg:
+    /* if < 30%*/ linear-gradient(
+                var(--color-invalid),
+                var(--color-invalid)
+            )
+            0 / max(0px, var(--progress-width) * 0.3 - 100%) 1px,
+        /* else if < 60%  */ linear-gradient(currentColor, currentColor) 0 /
+            max(0px, var(--progress-width) * 0.6 - 100%) 1px,
+        /* else  */ var(--color-focus);
+
+    -webkit-appearance: none;
     appearance: none;
     border: none;
-    width: var(--w);
-    height: 20px;
-    display: block;
-    margin: 10px;
-    background-color: lightgrey;
-    border-radius: 50px;
+    accent-color: initial;
+    display: inline-flex;
+    width: var(--progress-width);
+    height: calc(var(--comfy-height) / 2);
+    background: var(--gray-200);
+    border-radius: var(--progress-radius);
 }
 
 progress[value]::-webkit-progress-bar {
-    background-color: lightgrey;
-    border-radius: 50px;
+    background: var(--gray-200);
+    border-radius: var(--progress-radius);
 }
 
 progress[value]::-webkit-progress-value {
-    border-radius: 50px;
-    background: var(--b);
+    background-color: currentColor;
+    /* Safari fails background: var(--progress-bg);
+    background-image: var(--progress-bg); */
+    border-radius: var(--progress-radius);
 }
 
+/* 
+https://stackoverflow.com/questions/16348489/is-there-a-way-to-apply-styles-to-safari-only
+@media not all and (min-resolution: 0.001dpcm) {
+    @supports (-webkit-appearance: none) and (display: flow-root) {
+        progress[value]::-webkit-progress-value {
+            background-color: currentColor !important;
+        }
+    }
+} */
+
 progress[value]::-moz-progress-bar {
-    border-radius: 50px;
-    background: var(--b);
+    background: var(--progress-bg);
+    border-radius: var(--progress-radius);
+}
+
+[progress]::-ms-fill {
+    background: var(--progress-bg);
 }

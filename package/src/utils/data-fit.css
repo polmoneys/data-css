@@ -19,3 +19,10 @@
 [data-fit='min-height'] {
     min-height: 0;
 }
+
+[data-fit='comfy-width'] {
+    min-width: var(--comfy-width);
+}
+[data-fit='comfy-height'] {
+    min-height: var(--comfy-height);
+}

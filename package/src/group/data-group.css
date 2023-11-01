@@ -72,6 +72,10 @@ inherit these tokens
     flex-grow: 1;
 }
 
+[data-grid-dense] {
+    grid-auto-flow: dense;
+}
+
 /* 
     Container / Page
     style="--container-width: 780px;" 

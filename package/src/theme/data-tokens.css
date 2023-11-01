@@ -4,15 +4,15 @@
 
     --white-100: #fff;
     --white-200: #f5f5f7;
-    --black-100: #191919;
+    --black-100: #0f0825;
     --black-200: #343232;
     --gray-100: hsl(0, 2%, 53%);
     --gray-200: hsl(0, 4%, 74%);
     --gray-300: hsl(0, 4%, 84%);
-    --error-100: hsl(344, 94%, 60%);
-    --focus-100: #2f46eb;
-    --color-focus: var(--focus-100);
-    --color-invalid: var(--error-100);
+    --red-100: #f10aaa;
+    --purple-100: #474be6;
+    --color-focus: var(--purple-100);
+    --color-invalid: var(--red-100);
     --color-disabled: var(--gray-300);
 
     --comfy-height-xs: auto;
@@ -31,23 +31,19 @@
 
     --border-width: 1px;
     --border-radius: 0.1em;
-    --shadow-color: var(--black-100);
+
     --shadow-spread: 0 1px 2px;
+    --shadow-color: var(--black-100);
     --shadow: var(--shadow-spread) var(--shadow-color);
-    --shadow-focus-base: 0 0 0 calc(var(--border-width) * 2.2);
-    --shadow-focus: var(--shadow-focus-base) var(--color-focus);
-    --shadow-focus-invalid: var(--shadow-focus-base) var(--color-invalid);
+
+    --shadow-focus-spread: 0 0 0 calc(var(--border-width) * 2.2);
+    --shadow-focus: var(--shadow-focus-spread) currentColor;
 
     --gap-1: 0.4em;
     --gap-2: 0.6em;
     --gap-3: 0.8em;
     --gap-4: 1em;
     --gap-5: 1.2em;
-
-    --ratio-square: 1;
-    --ratio-portrait: 9/16;
-    --ratio-landscape: 16/9;
-    --ratio-ultrawide: 18/5;
 
     --z-1: 1;
     --z-2: 2;
@@ -56,14 +52,6 @@
 
     --ios-notch: env(safe-area-inset-top) env(safe-area-inset-right)
         env(safe-area-inset-bottom) env(safe-area-inset-left);
-
-    /* https://moderncss.dev/ */
-    --space-sm: clamp(0.7rem, 1.5%, 1.1rem);
-    --space-md: clamp(1rem, 3%, 1.5rem);
-    --space-lg: clamp(1.5rem, 6%, 3rem);
-    --block-flow-sm: min(2rem, 4vh);
-    --block-flow-md: min(4rem, 8vh);
-    --block-flow-lg: min(8rem, 16vh);
 }
 
 :root {
@@ -71,11 +59,6 @@
     --color: var(--black-200);
     color: var(--color);
     background-color: var(--background);
-    accent-color: var(--color-invalid);
     color-scheme: light;
+    accent-color: var(--color-invalid);
 }
-
-/* @media (prefers-color-scheme: dark) {
-    :root {
-    }
-} */

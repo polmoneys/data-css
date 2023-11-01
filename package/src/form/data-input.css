@@ -114,6 +114,12 @@
     color: currentColor;
 }
 
+:is(:-webkit-autofill, :autofill) {
+    /* Note: won't work in all browsers: background and color */
+    /* This because some UAs use !important on their autofill declarations */
+    /* See https://mdn.io/autofill for details */
+}
+
 input[type='file'] {
     padding-left: 0;
     max-width: 100%;
@@ -138,4 +144,9 @@ input[type='search']::-webkit-calendar-picker-indicator {
 }
 input[type='search']::-webkit-clear-button {
     color: currentColor;
+}
+
+input[type='password'] {
+    font-family: Verdana;
+    letter-spacing: 0.125em;
 }

@@ -1,19 +1,24 @@
-/* Borders as shadows */
+[data-border-radius] {
+    border-radius: var(--border-radius);
+}
+[data-border-shadow] {
+    --border-shadow-color: var(--black-100);
+}
 [data-border-shadow='outer'] {
-    box-shadow: 0 0 0 2px #000;
+    box-shadow: 0 0 0 2px var(--border-shadow-color);
 }
 [data-border-shadow='inner'] {
-    box-shadow: inset 0 0 0 2px #000;
+    box-shadow: inset 0 0 0 2px var(--border-shadow-color);
 }
 [data-border-shadow='left'] {
-    box-shadow: inset 2px 0 0 0 #000;
+    box-shadow: inset 2px 0 0 0 var(--border-shadow-color);
 }
 [data-border-shadow='right'] {
-    box-shadow: inset -2px 0 0 0 #000;
+    box-shadow: inset -2px 0 0 0 var(--border-shadow-color);
 }
 [data-border-shadow='top'] {
-    box-shadow: inset 0 2px 0 0 #000;
+    box-shadow: inset 0 2px 0 0 var(--border-shadow-color);
 }
 [data-border-shadow='bottom'] {
-    box-shadow: inset 0 -2px 0 0 #000;
+    box-shadow: inset 0 -2px 0 0 var(--border-shadow-color);
 }
