@@ -1,4 +1,4 @@
-import { html } from 'lit-html';
+import { html, render } from 'lit-html';
 import {
     ActionTypes,
     Orientations,
@@ -6,6 +6,7 @@ import {
     VariantPanel,
 } from '../interfaces/state';
 import { Shape } from './shape';
+import { $ } from '.';
 import { store, dispatch } from '../store';
 import { renderCard } from '../showcase/card';
 import { renderPanel } from '../showcase/panel';
@@ -44,7 +45,7 @@ export function Group() {
                     vertices: 3,
                     size: 45,
                     transforms: 'translateX(10px)',
-                    fill: isCard ? 'var(--error-100)' : 'currentColor',
+                    fill: isCard ? 'var(--red-100)' : 'currentColor',
                 })}
             </button>
             <button
@@ -57,7 +58,7 @@ export function Group() {
                     vertices: 4,
                     size: 45,
                     transforms: 'translateX(10px)',
-                    fill: !isCard ? 'var(--error-100)' : 'currentColor',
+                    fill: !isCard ? 'var(--red-100)' : 'currentColor',
                 })}
             </button>
         </div>
@@ -186,7 +187,7 @@ export function Ratio(orientation: Orientations, empty?: boolean) {
                         y="10"
                         width="44"
                         height="44"
-                        fill="${isSquare ? 'var(--error-100)' : 'currentColor'}"
+                        fill="${isSquare ? 'var(--red-100)' : 'currentColor'}"
                         rx="2"
                     />
                 </svg>
@@ -203,9 +204,7 @@ export function Ratio(orientation: Orientations, empty?: boolean) {
                         y="6"
                         width="44"
                         height="52"
-                        fill="${isPortrait
-                            ? 'var(--error-100)'
-                            : 'currentColor'}"
+                        fill="${isPortrait ? 'var(--red-100)' : 'currentColor'}"
                         rx="2"
                     />
                 </svg>
@@ -223,12 +222,86 @@ export function Ratio(orientation: Orientations, empty?: boolean) {
                         width="52"
                         height="38"
                         fill="${isLandscape
-                            ? 'var(--error-100)'
+                            ? 'var(--red-100)'
                             : 'currentColor'}"
                         rx="2"
                     />
                 </svg>
             </button>
+        </div>
+    `;
+}
+
+const COLORS = [
+    {
+        label: 'default',
+        value: 'currentColor',
+    },
+    {
+        label: 'red',
+        value: 'var(--red-100)',
+    },
+    {
+        label: 'purple',
+        value: 'var(--purple-100)',
+    },
+    {
+        label: 'gray',
+        value: 'var(--gray-300)',
+    },
+];
+
+export function renderColorPicker() {
+    render(
+        ColorPicker(),
+        document.querySelector<HTMLDivElement>(
+            'section > header div:first-of-type',
+        )!,
+    );
+}
+
+function ColorPicker() {
+    const onButtonChange = (event: any) => {
+        const { swatch } = event.target.dataset;
+
+        const className = {
+            red: 'error',
+            purple: 'focus',
+            gray: 'gray',
+            default: '',
+        }[swatch as string];
+
+        const article = $('article');
+        if (article != null) {
+            article.classList.remove('error', 'focus', 'gray');
+            if (className !== '') {
+                article.classList.add(className as string);
+            }
+        }
+    };
+
+    return html`
+        <div data-group="flex" data-gap="sm">
+            ${COLORS.map(
+                (color) => html`
+                    <button
+                        data-animation-wiggle-hover
+                        data-button="circle"
+                        data-fit="comfy-height"
+                        data-paper
+                        data-paper-outline
+                        data-swatch=${color.label}
+                        @click=${{ handleEvent: onButtonChange }}
+                    >
+                        ${Shape({
+                            vertices: 8,
+                            size: 32,
+                            // transforms: 'translateX(10px)',
+                            fill: color.value,
+                        })}
+                    </button>
+                `,
+            )}
         </div>
     `;
 }

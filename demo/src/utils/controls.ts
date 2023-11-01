@@ -30,13 +30,3 @@ function Title() {
 
     return html` <strong>${`${snippet}:`}</strong> groups ${description}`;
 }
-
-export function renderHeaderGroup() {
-    render(
-        html`
-            <h1>Hola amigx</h1>
-            <p>Interact with controls to switch around demos</p>
-        `,
-        document.querySelector<HTMLDivElement>('header')!,
-    );
-}

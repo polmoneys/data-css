@@ -4,7 +4,7 @@ import { Article } from '../showcase/article';
 import { Button } from '../showcase/button';
 import { Checkbox } from '../showcase/checkbox';
 import { Fonts } from '../showcase/font';
-import { Icons } from '../utils/icon';
+import { Icons } from '../showcase/icon';
 import { Input } from '../showcase/input';
 import { Paper } from '../showcase/paper';
 import { Radio } from '../showcase/radio';

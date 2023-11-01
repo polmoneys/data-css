@@ -2,7 +2,7 @@ import { html, render } from 'lit-html';
 import { Shape } from '../utils/shape';
 import { Line } from '../utils/skeletons';
 import { snippetKindToShape } from '../utils';
-import { Icon } from '../utils/icon';
+import { Icon } from '../showcase/icon';
 import { Snippet, SnippetKind, Snippets } from '../interfaces/snippet';
 import { dispatch, store } from '../store';
 import SNIPPETS from '../snippets';

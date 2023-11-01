@@ -1,7 +1,7 @@
 import { dispatch, store } from './store';
 
-import '../../package/src/data-reset.css';
-import '../../package/src/data-tokens.css';
+import '../../package/src/theme/data-reset.css';
+import '../../package/src/theme/data-tokens.css';
 
 import '../../package/src/form/index.css';
 import '../../package/src/form/data-button.css';
@@ -40,12 +40,17 @@ import '../../package/src/utils/data-margin-auto.css';
 import '../../package/src/utils/data-mask.css';
 import '../../package/src/utils/data-overflow.css';
 import '../../package/src/utils/data-padding.css';
-import '../../package/src/utils/data-paper.css';
 import '../../package/src/utils/data-place.css';
 import '../../package/src/utils/data-print.css';
 import '../../package/src/utils/data-ratio.css';
 import '../../package/src/utils/data-reorder.css';
 import '../../package/src/utils/data-util.css';
+
+// later to override
+import '../../package/src/theme/data-paper.css';
+import '../../package/src/theme/data-paper-accent.css';
+import '../../package/src/theme/data-paper-error.css';
+
 // import '../../package/dist/merged.css';
 
 import './utils/actions.css';
@@ -60,6 +65,7 @@ import { renderPanel } from './showcase/panel';
 import { initialState } from './store/initialState';
 import { renderSearchResults } from './utils/search';
 import { ActionTypes } from './interfaces/state';
+import { renderColorPicker } from './utils/actions';
 
 store.subscribe(loop);
 // const unsubscribe = store.subscribe(loop);
@@ -76,13 +82,15 @@ function onClear() {
 function update(event: Event) {
     const { filtered } = store.getState();
     const value = (event.target as HTMLInputElement)?.value;
-
-    const results = filtered.filter((snip) => {
-        return snip.value.startsWith(value.toLowerCase());
-    });
-    if (results.length > 0) {
-        dispatch(store, ActionTypes.FILTERED, results);
-        dispatch(store, ActionTypes.SUGGESTIONS, results);
+    const sanitized = value.replace(/[^a-zA-Z]/g, '').toLowerCase();
+    if (sanitized.length > 0) {
+        const results = filtered.filter((snip) => {
+            return snip.value.startsWith(sanitized);
+        });
+        if (results.length > 0) {
+            dispatch(store, ActionTypes.FILTERED, results);
+            dispatch(store, ActionTypes.SUGGESTIONS, results);
+        }
     }
 }
 
@@ -90,6 +98,7 @@ function loop() {
     const { filtered } = store.getState();
     const urlParams = new URLSearchParams(window.location.search);
     const snippet = urlParams.get('snippet');
+
     renderSearchResults();
 
     // landing
@@ -123,15 +132,22 @@ function loop() {
             menu.classList.remove('show');
         }
         renderDetail(snippet);
+        if (!['paper'].includes(snippet)) {
+            renderColorPicker();
+        }
     }
 }
 
-document.addEventListener('input', update);
 document.addEventListener('DOMContentLoaded', function () {
     // search
     const btn = $('#clear-input');
     if (btn != null) {
         btn.addEventListener('click', onClear);
     }
+    const searchInput = $('#q');
+    if (searchInput != null) {
+        searchInput.addEventListener('input', update);
+    }
+
     loop();
 });

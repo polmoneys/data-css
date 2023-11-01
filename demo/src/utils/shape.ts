@@ -82,29 +82,20 @@ function leSVG(
     datum: any,
     transforms: any,
 ) {
-    if (transforms) {
-        let itemStyles = {
-            transformOrigin: 'center',
-            transform: `${transforms}`,
-        };
-
-        return svg`<svg
+    let itemStyles = {
+        pointerEvents: 'none',
+        transformOrigin: 'center',
+        transform: `${transforms ?? ''}`,
+    };
+    return svg`<svg
     viewBox=${viewBox}
     width=${size}
     height=${size}
     fill=${fill}
     style="${styleMap(itemStyles)}"
+      focusable="false"
+        
   >
     <path d=${datum} />
   </svg>`;
-    } else {
-        return svg`<svg
-    viewBox=${viewBox}
-    width=${size}
-    height=${size}
-    fill=${fill}
-  >
-    <path d=${datum} />
-  </svg>`;
-    }
 }

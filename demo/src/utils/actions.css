@@ -314,3 +314,18 @@ input[type='range']:not([data-range])::-moz-range-thumb {
         padding: 0.5vmin 2vmin;
     }
 }
+
+section > header div:first-of-type button:nth-child(1):focus {
+    box-shadow: var(--shadow-focus-spread) var(--black-100);
+}
+section > header div:first-of-type button:nth-child(2):focus {
+    box-shadow: var(--shadow-focus-spread) var(--error-100);
+}
+
+section > header div:first-of-type button:nth-child(3):focus {
+    box-shadow: var(--shadow-focus-spread) var(--purple-100);
+}
+
+section > header div:first-of-type button:nth-child(4):focus {
+    box-shadow: var(--shadow-focus-spread) var(--gray-100);
+}
