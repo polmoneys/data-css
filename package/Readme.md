@@ -41,19 +41,8 @@ Provide `List` fallback for Firefox, still no `has` support yet:
 }
 ```
 
-Showcase `CSS gradients` to style Inputs/Dialogs/Cards with **slots** (start/end):
+Showcase `CSS gradients` to style IDialogs/Cards with **slots** (start/end).
 
-```css
-
-[data-input]:has([data-input-start]):not(:has([data-input-end])) {
-    background: repeating-linear-gradient(90deg, blue 0%, blue var(--input-start-width), transparent 100%);
-}
-
-[data-input]:not([data-input-start]):has(:has([data-input-end])) {
-    background: repeating-linear-gradient(90deg, transparent calc(100% - var(--input-end-width), blue calc(100% - var(--input-end-width) , blue 100%);
-}
-
-```
 
 ### Why
 
