@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "build": "cat ./src/*/**.css > ./dist/merged.css",
+    "build:css": "npm run clean && node concat-css.js",
     "clean": "rm -r dist/*"
   },
   "devDependencies": {
@@ -12,5 +12,4 @@
     "typescript": "^5.0.2",
     "vite": "^4.4.5"
   }
- 
 }
