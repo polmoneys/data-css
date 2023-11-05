@@ -40,6 +40,7 @@
 
 @media (orientation: portrait) {
     [data-tray] {
-        width: 100%;
+        width: 90%;
+        left: 5%;
     }
 }

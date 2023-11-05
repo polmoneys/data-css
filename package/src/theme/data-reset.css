@@ -27,17 +27,18 @@ html {
     -webkit-tap-highlight-color: transparent;
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
+    overflow-y: scroll;
 }
 
 body {
-    overflow-y: scroll;
     width: 100%;
     height: 100%;
     block-size: 100%;
     inline-size: 100%;
 }
+
 @supports (scrollbar-gutter: stable) {
-    body {
+    html {
         overflow-y: auto;
         scrollbar-gutter: stable;
     }

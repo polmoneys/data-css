@@ -2,15 +2,7 @@
     --scrollbar-size: min(8px, 0.3em);
 }
 
-[data-overflow='x'] {
-    width: 100%;
-    overflow-x: scroll;
-    overscroll-behavior-x: contain;
-    scroll-snap-type: x proximity;
-    scrollbar-width: none;
-    scrollbar-gutter: stable;
-    background-color: var(--transparent);
-
+[data-overflow] {
     &::-webkit-scrollbar {
         width: var(--scrollbar-size);
         height: var(--scrollbar-size);
@@ -36,4 +28,23 @@
     &:hover::-webkit-scrollbar-track {
         background-color: var(--gray-300);
     }
+}
+
+[data-overflow='x'] {
+    width: 100%;
+    overflow-x: scroll;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+    scrollbar-gutter: stable;
+    background-color: var(--transparent);
+}
+
+[data-overflow='y'] {
+    overflow-y: scroll;
+    overscroll-behavior-y: contain;
+    scrollbar-width: none;
+    scrollbar-gutter: stable;
+    background-color: var(--transparent);
+    scroll-padding-bottom: var(--gap-3);
 }
