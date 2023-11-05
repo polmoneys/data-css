@@ -13,7 +13,6 @@ export function Range() {
             <div data-group="grid" data-gap="sm">
                 <label for="range-a">Range</label>
                 <input
-                    data-range=""
                     type="range"
                     name="range-a"
                     min="0"
@@ -25,7 +24,6 @@ export function Range() {
                 <label for="range-b">Disabled Range</label>
 
                 <input
-                    data-range=""
                     type="range"
                     name="range-b"
                     min="0"
@@ -36,7 +34,6 @@ export function Range() {
                 <label for="range-c">Range</label>
                 <input
                     orient="vertical"
-                    data-range=""
                     type="range"
                     name="range-c"
                     min="0"

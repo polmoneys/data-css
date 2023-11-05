@@ -13,4 +13,5 @@ export const initialState: State = {
     ),
     kind: undefined,
     suggestions: [],
+    output: [],
 };

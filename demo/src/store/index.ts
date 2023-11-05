@@ -57,6 +57,12 @@ function reducer(state: State = initialState, action: any) {
                 ...state,
                 suggestions: action.payload,
             };
+
+        case ActionTypes.SET_OUTPUT:
+            return {
+                ...state,
+                output: action.payload,
+            };
         // case ActionTypes.UNLOCKED:
         //     const addition = action.payload;
         //     const concatenated = [...state.unlocked, addition];

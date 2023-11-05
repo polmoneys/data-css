@@ -3,7 +3,6 @@ import { dispatch, store } from './store';
 import '../../package/src/theme/data-reset.css';
 import '../../package/src/theme/data-tokens.css';
 
-import '../../package/src/form/index.css';
 import '../../package/src/form/data-button.css';
 import '../../package/src/form/data-checkbox.css';
 import '../../package/src/form/data-input.css';
@@ -32,6 +31,7 @@ import '../../package/src/media/data-spinner.css';
 import '../../package/src/utils/data-animations.css';
 import '../../package/src/utils/data-block-flow.css';
 import '../../package/src/utils/data-border.css';
+import '../../package/src/utils/data-elevation.css';
 import '../../package/src/utils/data-fit.css';
 import '../../package/src/utils/data-font.css';
 import '../../package/src/utils/data-gap.css';
@@ -43,13 +43,12 @@ import '../../package/src/utils/data-padding.css';
 import '../../package/src/utils/data-place.css';
 import '../../package/src/utils/data-print.css';
 import '../../package/src/utils/data-ratio.css';
-import '../../package/src/utils/data-reorder.css';
 import '../../package/src/utils/data-util.css';
 
-// later to override
+import '../../package/src/theme/data-theme.css';
+import '../../package/src/theme/data-colors.css';
+import '../../package/src/theme/data-gradient.css';
 import '../../package/src/theme/data-paper.css';
-import '../../package/src/theme/data-paper-accent.css';
-import '../../package/src/theme/data-paper-error.css';
 
 // import '../../package/dist/merged.css';
 
@@ -59,16 +58,15 @@ import './layout.css';
 
 import { renderSnippets } from './pages';
 import { renderDetail } from './pages/detail';
-import { $, emptyNode } from './utils';
 import { renderCard } from './showcase/card';
 import { renderPanel } from './showcase/panel';
 import { initialState } from './store/initialState';
-import { renderSearchResults } from './utils/search';
 import { ActionTypes } from './interfaces/state';
+import { $, emptyNode } from './utils';
+import { renderSearchResults } from './utils/search';
 import { renderColorPicker } from './utils/actions';
 
 store.subscribe(loop);
-// const unsubscribe = store.subscribe(loop);
 
 function onClear() {
     const input = $('#q');
@@ -77,20 +75,27 @@ function onClear() {
     }
     dispatch(store, ActionTypes.FILTERED, initialState.filtered);
     dispatch(store, ActionTypes.SUGGESTIONS, []);
+    dispatch(store, ActionTypes.SET_OUTPUT, []);
 }
 
 function update(event: Event) {
-    const { filtered } = store.getState();
     const value = (event.target as HTMLInputElement)?.value;
     const sanitized = value.replace(/[^a-zA-Z]/g, '').toLowerCase();
-    if (sanitized.length > 0) {
-        const results = filtered.filter((snip) => {
+
+    if (sanitized !== '') {
+        const results = initialState.filtered.filter((snip) => {
             return snip.value.startsWith(sanitized);
         });
+
         if (results.length > 0) {
             dispatch(store, ActionTypes.FILTERED, results);
             dispatch(store, ActionTypes.SUGGESTIONS, results);
+        } else {
+            dispatch(store, ActionTypes.FILTERED, initialState.filtered);
+            dispatch(store, ActionTypes.SUGGESTIONS, []);
         }
+    } else {
+        dispatch(store, ActionTypes.SUGGESTIONS, []);
     }
 }
 

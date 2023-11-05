@@ -25,6 +25,10 @@ const setGroup = (newGroup: Groups) => ({
     payload: newGroup,
 });
 
+const setOutput = (newOutput: any) => ({
+    type: ActionTypes.SET_OUTPUT,
+    payload: newOutput,
+});
 // function next(section: boolean | string) {
 //     return { type: ActionTypes.UNLOCKED, payload: section };
 // }
@@ -73,6 +77,8 @@ export const matchActionToFn = (action: keyof typeof ActionTypes) => {
             return setSuggestions;
         case ActionTypes.SET_KIND:
             return setKind;
+        case ActionTypes.SET_OUTPUT:
+            return setOutput;
         default:
             return () => ({});
     }

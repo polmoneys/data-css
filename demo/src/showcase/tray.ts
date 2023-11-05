@@ -56,11 +56,12 @@ export function TrayContent() {
         data-gap="sm"
         data-padding="xy"
     >
-        ${Line(4, true)}
+        ${Line(4)}
         <menu>
             <button @click=${{ handleEvent: toggleTray }} type="reset">
                 Cancel
             </button>
         </menu>
+        ${Line(1)}
     </div>`;
 }

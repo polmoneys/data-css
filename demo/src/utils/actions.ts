@@ -247,7 +247,7 @@ const COLORS = [
     },
     {
         label: 'gray',
-        value: 'var(--gray-300)',
+        value: 'var(--gray-100)',
     },
 ];
 
@@ -272,10 +272,14 @@ function ColorPicker() {
         }[swatch as string];
 
         const article = $('article');
-        if (article != null) {
+        const serachBarContainer = $('header [data-input=""]');
+        if (article != null && serachBarContainer != null) {
             article.classList.remove('error', 'focus', 'gray');
+            serachBarContainer.classList.remove('error', 'focus', 'gray');
+
             if (className !== '') {
                 article.classList.add(className as string);
+                serachBarContainer.classList.add(className as string);
             }
         }
     };

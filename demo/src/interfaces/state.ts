@@ -10,6 +10,7 @@ export const ActionTypes = {
     FILTERED: 'FILTERED',
     SUGGESTIONS: 'SUGGESTIONS',
     SET_KIND: 'SET_KIND',
+    SET_OUTPUT: 'SET_OUTPUT',
 } as const;
 
 export type Orientations = 'portrait' | 'landscape' | 'ultrawide' | 'square';
@@ -28,4 +29,5 @@ export interface State {
     filtered: Snippets;
     suggestions: Snippets;
     kind?: SnippetKind;
+    output: Array<any>;
 }

@@ -48,13 +48,16 @@ section > header div:first-of-type {
     }
 }
 
-main article.error * {
+*.error,
+*.error * {
     color: var(--red-100);
 }
-main article.gray * {
+*.gray,
+*.gray * {
     color: var(--gray-300);
 }
-main article.focus * {
+*.focus,
+*.focus * {
     color: var(--purple-100);
 }
 
@@ -114,6 +117,18 @@ aside {
     height: fit-content;
 }
 
+article form {
+    position: relative;
+    min-height: min(50vh, 300px);
+}
+.output {
+    border: var(--border-width) solid currentColor;
+    border-radius: var(--border-radius);
+    width: 120px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
 /* TODO: cute theme switcher */
 body:has(option[value='pony']:checked) {
     --font-family: cursive;
@@ -125,12 +140,13 @@ body:has(option[value='pony']:checked) {
 /* pre/code */
 
 [class*='highlight-'] {
-    border-radius: 3px;
+    border-radius: var(--border-width);
     margin: -3px;
     padding: 3px;
+    width: fit-content;
 }
 .highlight-blue:hover {
-    background: #00f;
+    background: rgb(151, 151, 247);
 }
 .highlight-orange:hover {
     background: #ffa500;
@@ -139,44 +155,29 @@ body:has(option[value='pony']:checked) {
     background: #008000;
 }
 
-/* 👈 THIS  before </span> should work*/
-/*
-<code style="--start: 13;">
-	<span class="line">code {</span>
-	<span class="line">    counter-reset: step;</span>
-	<span class="line">    counter-increment: step calc(var(--start, 1) - 1); </span>
-	<span class="line">}</span>
-	<span class="line"></span>
-	<span class="line">code .line::before {</span>
-	<span class="line">    content: counter(step);</span>
-	<span class="line">    counter-increment: step;</span>
-	<span class="line">    display: inline-block;</span>	
-	<span class="line">}</span>
-</code>
-*/
-
 code {
     counter-reset: step;
-    counter-increment: step calc(var(--start, 1) - 1); /* 👈 THIS */
+    counter-increment: step calc(var(--start, 1) - 1);
+    padding: var(--gap-1) 0;
+    display: block;
+    background: var(--white-100);
+    border-radius: var(--border-radius);
+    display: flex;
+    flex-direction: column;
 }
 
 code .line::before {
     content: counter(step);
     counter-increment: step;
-    width: 1.5rem;
-    padding-right: 0.5rem;
-    margin-right: 0.5rem;
+    width: 3ch;
+    padding-right: var(--gap-1);
+    margin-right: var(--gap-1);
     display: inline-block;
     text-align: right;
-    color: rgba(115, 138, 148, 0.4);
-    border-right: 1px solid currentColor;
+    color: var(--gray-300);
+    border-right: var(--border-width) solid currentColor;
 }
 
-code {
-    padding: 0.3rem 0;
-    display: block;
-    background: #f6f8fa;
-}
 code .line {
-    display: block;
+    display: flex;
 }

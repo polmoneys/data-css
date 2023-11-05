@@ -8,14 +8,9 @@ export function ActionSheet() {
         const isActionSheetOpen =
             (actionsheet as HTMLElement)!.dataset.actionsheetOpen === 'true';
 
-        if (event.target.id === 'show-tray') {
+        if (['show-tray', 'clear-input'].includes(event.target.id)) {
             return;
         }
-
-        if (event.target.id === 'clear-input') {
-            return;
-        }
-
         if (event.target.id === 'show-sheet') {
             if (isActionSheetOpen) {
                 (actionsheet as HTMLElement)!.dataset.actionsheetOpen = 'false';

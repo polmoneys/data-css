@@ -25,11 +25,10 @@ export function Scroller() {
                             data-padding="xy"
                             data-place-content="start"
                             data-paper
-                            data-font="xxxl"
                         >
                             <img
                                 @click=${{ handleEvent: onScroll }}
-                                data-avatar-size="${number < 4
+                                data-avatar="${number < 4
                                     ? 'lg'
                                     : [10, 11, 12].includes(number)
                                     ? 'sm'

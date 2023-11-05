@@ -17,7 +17,6 @@ import { Tabs } from '../showcase/tabs';
 import { Tray } from '../showcase/tray';
 import { Unit } from '../showcase/unit';
 import { Line } from '../utils/skeletons';
-import { Tokens } from '../showcase/tokens';
 import { Soon } from '../utils/soon';
 import { Progress } from '../showcase/progress';
 
@@ -31,9 +30,8 @@ export function renderDetail(value: string) {
 function getDetail(value: string) {
     switch (value) {
         case 'reset':
-            return html`${Soon()}`;
         case 'tokens':
-            return html`${Tokens()}`;
+            return html`${Soon()}`;
         // form
         case 'button':
             return html`${Button()}`;

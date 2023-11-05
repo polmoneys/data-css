@@ -100,6 +100,22 @@ export function Paper() {
                 })}
                 ${Line(1, true)}
             </div>
+
+            <div
+                data-ratio="square"
+                data-theme
+                data-place-items="center"
+                data-place-content="center"
+                data-group="grid"
+                data-gap="sm"
+            >
+                ${Shape({
+                    vertices: 7,
+                    size: 24,
+                    fill: 'currentColor',
+                })}
+                ${Line(1, true)}
+            </div>
         </div>
         ${Line(2)}
     `;
