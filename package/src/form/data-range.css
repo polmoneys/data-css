@@ -1,17 +1,17 @@
-[data-range] {
+input[type='range'] {
     width: 100%;
     accent-color: currentColor;
 }
 
-[data-range]:focus {
+input[type='range']:focus {
     accent-color: var(--color-focus);
 }
-[data-range]:focus-visible {
+input[type='range']:focus-visible {
     outline: none;
     accent-color: var(--color-focus);
 }
 
-[orient='vertical'] {
+input[type='range'][orient='vertical'] {
     -webkit-appearance: slider-vertical;
 }
 
@@ -19,11 +19,11 @@
    Customize
    ---------
   1. FF
-    [data-range]::-moz-range-thumb {
+    input[type='range']::-moz-range-thumb {
     background: var(--range-bg);
 
     }
-    [data-range]::-moz-range-track {
+    input[type='range']::-moz-range-track {
      background: var(--range-bg);
 
     }
@@ -32,11 +32,11 @@
     }
 
   2. Webkit
-    [data-range]::-webkit-slider-thumb {
+    input[type='range']::-webkit-slider-thumb {
     }
-    [data-range]::-webkit-slider-runnable-track {
+    input[type='range']::-webkit-slider-runnable-track {
     }
-    [data-range]:focus::-webkit-slider-thumb {
+    input[type='range']:focus::-webkit-slider-thumb {
     }
   
     3. MS

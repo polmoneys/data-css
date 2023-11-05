@@ -1,25 +1,50 @@
-/* 
-    https://pqina.nl/blog/css-colors-with-custom-properties/
-*/
 :root {
+    --background: var(--white-200);
+    --color: var(--black-200);
+    color: var(--color);
+    background-color: var(--background);
+    color-scheme: light;
+
+    accent-color: var(--color-invalid);
+
+    /* 
+    https://pqina.nl/blog/css-colors-with-custom-properties/
+    */
     --foreground: 0, 0, 0;
     --background: 255, 255, 255;
-    /* By default this is set to 1 so it doesn't cause inversions */
     --mod-invert: 1;
 }
 
+[data-theme] {
+    --shadow-behind: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.3);
+    --shadow-below: 0 0.1rem 0.1rem rgba(0, 0, 0, 0.2),
+        0 0.04rem 0.1rem rgba(0, 0, 0, 0.2);
+    --highlight-outline-alpha-factor: calc(var(--mod-contrast, 2.85) * 0.3);
+    --highlight-outline: 0 0 0 1px
+        rgba(
+            var(--foreground),
+            calc(0.3 * var(--highlight-outline-alpha-factor))
+        );
+    --highlight-inset: inset 0 0 0 1px
+        rgba(255, 255, 255, calc(0.12 * var(--mod-contrast, 1)));
+    --highlight-top: inset 0 1px 0 0
+        rgba(255, 255, 255, calc(0.2 * var(--mod-contrast, 1)));
+    --highlight-bottom: inset 0 -1px 0 rgba(0, 0, 0, calc(0.3 /
+                    var(--mod-contrast, 1)));
+    box-shadow: var(--highlight-outline), var(--highlight-top),
+        var(--highlight-bottom), var(--highlight-inset), var(--shadow-below),
+        var(--shadow-behind);
+}
+
+/*
 @media (prefers-color-scheme: dark) {
     :root {
         --foreground: 255, 255, 255;
         --background: 0, 0, 0;
-
-        /* We set this one to -1 so we can use it to invert values */
         --mod-invert: -1;
-
-        /* Set to 2 so we can use this to multiple values to increase contrast */
-        --mod-contrast: 2;
+        --mod-contrast: 1.4;
     }
-}
+} 
 
 html {
     color: rgb(var(--foreground));
@@ -36,54 +61,4 @@ html {
     --overlay: rgba(var(--foreground), 0.5);
     background-image: linear-gradient(var(--overlay), var(--overlay));
     background-color: rgb(var(--background));
-}
-
-.example-button {
-    /* Slightly dimmed color for text */
-    color: rgba(var(--background), 0.85);
-    /* 
-    An inset shadow above the text 
-    - Flip the text shadow direction 
-    - Lower shadow opacity
-    */
-    --text-shadow-y: calc(-1px * var(--mod-invert));
-    --text-shadow-alpha: calc(0.9 * (var(--mod-contrast, 4) * 0.25));
-    text-shadow: 0 var(--text-shadow-y) 0
-        rgba(var(--foreground), var(--text-shadow-alpha));
-
-    /* 
-    A subtle gradient as background
-    - Flip the gradient direction in dark mode 
-    - Lower opacity in dark mode
-    */
-    --linear-gradient-direction: calc(90deg + (var(--mod-invert) * 90deg));
-    --linear-gradient-factor: calc(var(--mod-contrast, 2.5) * 0.4);
-    background: linear-gradient(
-        var(--linear-gradient-direction),
-        rgba(var(--foreground), calc(0.6 * var(--linear-gradient-factor))),
-        rgba(var(--foreground), calc(0.75 * var(--linear-gradient-factor)))
-    );
-
-    /* 
-    A shadow and inset, define all the values used in the box-shadow, and then stack them
-    - Calculate factor to use for the button outline intensity
-    */
-    --shadow-behind: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.4);
-    --shadow-below: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2),
-        0 0.06125rem 0.125rem rgba(0, 0, 0, 0.2);
-    --highlight-outline-alpha-factor: calc(var(--mod-contrast, 2.85) * 0.35);
-    --highlight-outline: 0 0 0 1px
-        rgba(
-            var(--foreground),
-            calc(0.5 * var(--highlight-outline-alpha-factor))
-        );
-    --highlight-inset: inset 0 0 0 1px
-        rgba(255, 255, 255, calc(0.1 * var(--mod-contrast, 1)));
-    --highlight-top: inset 0 1px 0 0
-        rgba(255, 255, 255, calc(0.3 * var(--mod-contrast, 1)));
-    --highlight-bottom: inset 0 -1px 0 rgba(0, 0, 0, calc(0.4 /
-                    var(--mod-contrast, 1)));
-    box-shadow: var(--highlight-outline), var(--highlight-top),
-        var(--highlight-bottom), var(--highlight-inset), var(--shadow-below),
-        var(--shadow-behind);
-}
+} */

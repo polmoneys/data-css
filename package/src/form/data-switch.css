@@ -6,7 +6,7 @@
     color: currentColor;
     border: none;
     border-radius: var(--border-radius);
-    box-shadow: var(--input-border);
+    box-shadow: var(--shadow);
     transition:
         background 0.3s,
         box-shadow 0.2s;

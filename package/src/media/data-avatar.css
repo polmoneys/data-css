@@ -1,4 +1,4 @@
-[data-avatar-size] {
+[data-avatar] {
     --avatar--size: 4rem;
     border-radius: 50%;
     aspect-ratio: 1;
@@ -8,10 +8,10 @@
     box-shadow: var(--shadow);
 }
 
-[data-avatar-size='sm'] {
+[data-avatar='sm'] {
     --avatar--size: 3rem;
 }
 
-[data-avatar-size='lg'] {
+[data-avatar='lg'] {
     --avatar--size: 5rem;
 }

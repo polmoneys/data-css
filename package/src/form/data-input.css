@@ -31,7 +31,7 @@
 [data-input]:has([data-input-start]),
 [data-input]:has([data-input-end]),
 [data-input]:has([data-input-start]):has([data-input-end]) {
-    box-shadow: var(--input-border);
+    box-shadow: var(--shadow);
     transition: 180ms box-shadow ease-in-out;
     border-radius: var(--border-radius);
 
@@ -73,7 +73,7 @@
     padding: 0 var(--gap-3);
     border: none;
     border-radius: var(--border-radius);
-    box-shadow: var(--input-border);
+    box-shadow: var(--shadow);
     transition: 180ms box-shadow ease-in-out;
 }
 

@@ -61,6 +61,10 @@ inherit these tokens
     flex-wrap: wrap;
 }
 
+[data-reorder='top'] {
+    order: -1 !important;
+}
+
 [data-group='unit'] {
     display: flex;
     flex-wrap: wrap;

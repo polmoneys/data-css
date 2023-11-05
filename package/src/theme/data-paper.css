@@ -16,6 +16,8 @@
 */
 
 [data-paper] {
+    --paper-fg: var(--black-100-base);
+    --paper-bg: var(--white-100-base);
     /* 
     if within 4px of the full viewport size, 
     remove border radius.
@@ -27,26 +29,59 @@
     border-radius: var(--paper-border-radius);
 }
 
-[data-paper=''] {
-    background-color: var(--gray-300);
+/* 
+    background: rgba(var(--paper-bg), 0.25);
+  --overlay: rgba(var(--foreground), 0.5);
+    background-image: linear-gradient(var(--overlay), var(--overlay));
+    background-color: rgb(var(--background));
+*/
+[data-paper] {
+    background-color: rgba(var(--paper-fg), 0.3);
+
+    &[data-paper-outline],
+    &[data-paper-color] {
+        background-color: var(--transparent);
+    }
 
     &[data-paper-outline] {
-        background-color: var(--transparent);
         border: var(--border-width) solid currentColor;
         color: currentColor;
     }
 
-    &::-webkit-input-placeholder,
+    &::-webkit-input-placeholder {
+        color: rgba(var(--paper-fg), 1);
+    }
     & > *::-webkit-input-placeholder {
-        color: var(--black-100);
+        color: rgba(var(--paper-fg), 1);
     }
     &::-ms-input-placeholder,
     & > *::-ms-input-placeholder {
-        color: var(--black-100);
+        color: rgba(var(--paper-fg), 1);
     }
 }
 
 [data-paper='transparent'] {
-    background-color: var(--transparent) !important;
+    --paper-bg: var(--transparent);
+    background-color: var(--paper-bg) !important;
     box-shadow: none !important;
+}
+
+[data-paper='error'] {
+    --paper-bg: var(--red-100-base);
+    background: rgba(var(--paper-bg), 1);
+
+    &[data-paper-outline] {
+        --paper-fg: var(--red-100-base);
+        color: rgba(var(--paper-fg), 1);
+    }
+}
+
+[data-paper='accent'] {
+    --paper-bg: var(--purple-100-base);
+    background: rgba(var(--paper-bg), 1);
+
+    &[data-paper-outline] {
+        --paper-fg: var(--purple-100-base);
+        color: rgba(var(--paper-fg), 1);
+    }
 }

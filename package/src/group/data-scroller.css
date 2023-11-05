@@ -57,7 +57,7 @@
 [data-scroller] picture {
     width: 100%;
 }
-[data-scroller] img:not([data-avatar-size]) {
+[data-scroller] img:not([data-avatar]) {
     width: 100%;
     height: 100%;
     object-fit: cover;

@@ -1,11 +1,10 @@
-[data-radio],
 input[type='radio'] {
     /* For iOS < 15 */
     /* Not removed via appearance */
     background-color: var(--color-white);
     border: none;
     border-radius: var(--border-radius);
-    box-shadow: var(--input-border);
+    box-shadow: var(--shadow);
     color: currentColor;
     height: var(--comfy-height);
     width: var(--comfy-height);
@@ -14,17 +13,16 @@ input[type='radio'] {
 }
 
 input[type='radio']:not([disabled]):checked,
-[data-radio]:not([disabled]):checked {
+input[type='radio']:not(:disabled):checked {
     background-color: currentColor;
 }
 
 input[type='radio'][disabled],
-[data-radio][disabled]:checked {
+input[type='radio']:disabled {
     background-color: var(--color-disabled);
 }
 
-input[type='radio']:focus,
-[data-radio]:focus {
+input[type='radio']:focus {
     box-shadow: var(--shadow-focus);
     outline: var(--input-focus-outline);
 }

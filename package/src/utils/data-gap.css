@@ -1,3 +1,11 @@
+:where(html) {
+    --gap-1: 0.4em;
+    --gap-2: 0.6em;
+    --gap-3: 0.8em;
+    --gap-4: 1em;
+    --gap-5: 1.2em;
+}
+
 [data-gap='sm'] {
     gap: var(--gap-1);
 }

@@ -1,0 +1,22 @@
+:where(html) {
+    --z-1: 1;
+    --z-2: 2;
+    --z-3: 3;
+    --z-max: 999;
+}
+
+[data-z] {
+    z-index: var(--z-1);
+}
+
+[data-z='over'] {
+    z-index: var(--z-2) !important;
+}
+
+[data-z='top'] {
+    z-index: var(--z-3) !important;
+}
+
+[data-z='max'] {
+    z-index: var(--z-max) !important;
+}

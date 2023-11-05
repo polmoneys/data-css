@@ -33,7 +33,7 @@ select::-ms-expand {
     grid-area: select;
 }
 
-[data-select]:not([data-select='multiple'])::after {
+[data-select]:not(:has(select[multiple]))::after {
     content: '';
     justify-self: end;
     width: 0.8rem;
@@ -43,11 +43,12 @@ select::-ms-expand {
     clip-path: polygon(100% 0%, 0 0%, 50% 100%);
 }
 
-[data-select]:not([data-select='multiple']):has(select[disabled])::after {
+[data-select]:has(select[disabled], select:disabled)::after {
     background-color: var(--gray-200);
 }
 
-[data-select] select[disabled] {
+[data-select] select[disabled],
+[data-select] select:disabled {
     color: currentColor;
 }
 select:focus + [data-select-focus] {

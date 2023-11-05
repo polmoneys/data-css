@@ -19,10 +19,9 @@ button[data-button] {
     color: currentColor;
     border-radius: var(--border-radius);
 
-    box-shadow: var(--input-border);
+    box-shadow: var(--shadow);
     padding: var(--gap-1) var(--gap-3);
     line-height: 1.1;
-    font-size: var(--input-font-size);
 
     min-width: var(--comfy-width);
     min-height: var(--comfy-height);

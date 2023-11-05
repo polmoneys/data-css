@@ -1,27 +1,42 @@
-input[type='checkbox']:not([data-switch]),
-[data-checkbox] {
+input[type='checkbox']:not([data-switch]) {
     /* For iOS < 15 */
     background-color: var(--color-white);
     color: currentColor;
     border: none;
     border-radius: var(--border-radius);
-    box-shadow: var(--input-border);
+    box-shadow: var(--shadow);
     height: var(--comfy-height);
     width: var(--comfy-height);
     aspect-ratio: 1;
 }
 
 input[type='checkbox']:not([disabled], [data-switch]):checked,
-[data-checkbox]:not([disabled]):checked {
+input[type='checkbox']:not(:disabled, [data-switch]):checked {
     background-color: currentColor;
 }
 input[type='checkbox'][disabled]:not([data-switch]):checked,
-[data-checkbox][disabled]:checked {
+input[type='checkbox']:disabled:not([data-switch]):checked {
     background-color: var(--color-disabled);
 }
 
-input[type='checkbox']:focus,
-[data-checkbox]:focus {
+input[type='checkbox']:focus {
     box-shadow: var(--shadow-focus);
     outline: var(--input-focus-outline);
+}
+
+input[type='checkbox']:indeterminate:before {
+    --indeterminate-checkbox-height: 3px;
+    display: flex;
+    content: '';
+    background-color: currentColor;
+    width: calc(100% - 10px);
+    height: var(--indeterminate-checkbox-height);
+    border-radius: var(--border-radius);
+    transform: translateX(5px)
+        translateY(
+            calc(
+                calc(var(--comfy-height) / 2) -
+                    calc(var(--indeterminate-checkbox-height) / 2)
+            )
+        );
 }

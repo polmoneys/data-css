@@ -1,4 +1,4 @@
-[data-ratio] {
+:where(html) {
     --ratio-square: 1;
     --ratio-portrait: 9/16;
     --ratio-landscape: 16/9;
