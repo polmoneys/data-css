@@ -3,19 +3,19 @@ import { $ } from '../utils';
 import { Line } from '../utils/skeletons';
 
 export const toggleTray = () => {
-    const main = $('main');
+    const body = $('body');
     const tray = $('[data-tray]');
     const overlay = $('[data-tray-overlay]');
 
     if ((tray as HTMLElement)!.dataset.trayOpen === 'false') {
-        main!.setAttribute('inert', 'true');
         (overlay as HTMLElement)!.dataset.trayOverlayOpen = 'true';
         (tray as HTMLElement)!.dataset.trayOpen = 'true';
+        (body as HTMLElement).style['overflow'] = 'hidden';
         render(TrayContent(), $('[data-tray]')! as HTMLElement);
     } else {
-        main!.removeAttribute('inert');
         (overlay as HTMLElement)!.dataset.trayOverlayOpen = 'false';
         (tray as HTMLElement)!.dataset.trayOpen = 'false';
+        (body as HTMLElement).style['overflow'] = 'auto';
     }
 };
 
@@ -62,6 +62,6 @@ export function TrayContent() {
                 Cancel
             </button>
         </menu>
-        ${Line(1)}
+        ${Line(12)}
     </div>`;
 }

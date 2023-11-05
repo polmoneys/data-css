@@ -1,59 +1,29 @@
 import { html } from 'lit-html';
 import { Line } from '../utils/skeletons';
-import { $$ } from '../utils';
 import { dispatch, store } from '../store';
 import { ActionTypes } from '../interfaces/state';
-
-export function getAllSelect(): {
-    checked: any[];
-    all: HTMLSelectElement[];
-} {
-    const selects = $$('select:not(:disabled)') as Array<HTMLSelectElement>;
-    const all = Array.from(selects);
-
-    return {
-        checked: all
-            .map((select) => {
-                if (select.multiple) {
-                    console.log({
-                        is: Array.from(select.selectedOptions)?.map(
-                            (option) => option.index,
-                        ),
-                    });
-
-                    if (select.selectedOptions.length > 0) {
-                        return (
-                            Array.from(select.selectedOptions)
-                                // 0 based
-                                ?.map((option) => option.index)
-                                .join(' + ')
-                        );
-                    }
-                    return -1;
-                } else {
-                    return select.selectedIndex;
-                }
-            })
-            .filter((selectedIndex) => selectedIndex === -1),
-        all,
-    };
-}
 
 export function Select() {
     const { output } = store.getState();
 
-    const onSelectChange = () => {
-        const { checked } = getAllSelect();
-        dispatch(store, ActionTypes.SET_OUTPUT, checked);
+    const onSelectChange = (e: any) => {
+        const value = e.target.selectedIndex + 1;
+        dispatch(store, ActionTypes.SET_OUTPUT, [
+            {
+                defaultValue: `Option ${value}`,
+            },
+        ]);
+    };
+    const onSelectMultipleChange = (e: any) => {
+        const options = e.target.selectedOptions;
+
+        const values = Array.from(options)?.map((option: any) => ({
+            defaultValue: `Option ${option.index + 1}`,
+        }));
+
+        dispatch(store, ActionTypes.SET_OUTPUT, values);
     };
 
-    /*
-       Updated border colors such as for an error state 
-     Add to .select ➡️ style="--select-border: red; --select-focus: red" 
-   selectElement.addEventListener("change", (event) => {
-  result.textContent = `You like ${event.target.value}`;
-});
-     */
     return html`
         ${Line(7)}
 
@@ -63,15 +33,15 @@ export function Select() {
                 <div data-select="">
                     <select
                         id="standard-select"
-                        @change=${() => onSelectChange()}
+                        @change=${(e: any) => onSelectChange(e)}
                     >
-                        <option value="Option 1">Option 1</option>
-                        <option value="Option 2">Option 2</option>
-                        <option value="Option 3">Option 3</option>
-                        <option value="Option 4">Option 4</option>
-                        <option value="Option 5">Option 5</option>
+                        <option value="Option-1">Option 1</option>
+                        <option value="Option-2">Option 2</option>
+                        <option value="Option-3">Option 3</option>
+                        <option value="Option-4">Option 4</option>
+                        <option value="Option-5">Option 5</option>
                         <hr />
-                        <option value="Option length">
+                        <option value="Option-6">
                             Option that has too long of a value to fit
                         </option>
                     </select>
@@ -83,14 +53,15 @@ export function Select() {
                     <select
                         id="multi-select"
                         multiple
-                        @change=${() => onSelectChange()}
+                        @change=${(e: any) => onSelectMultipleChange(e)}
                     >
-                        <option value="Option 1">Option 1</option>
-                        <option value="Option 2">Option 2</option>
-                        <option value="Option 3">Option 3</option>
-                        <option value="Option 4">Option 4</option>
-                        <option value="Option 5">Option 5</option>
-                        <option value="Option length">
+                        <option value="Option-1">Option 1</option>
+                        <option value="Option-2">Option 2</option>
+                        <option value="Option-3">Option 3</option>
+                        <option value="Option-4">Option 4</option>
+                        <option value="Option-5">Option 5</option>
+                        <hr />
+                        <option value="Option-6">
                             Option that has too long of a value to fit
                         </option>
                     </select>
@@ -149,3 +120,43 @@ export function Select() {
         ${Line(3)}
     `;
 }
+
+//   selectElement.addEventListener('change', (event) => {
+//       result.textContent = `You like ${event.target.value}`;
+//   });
+// export function getAllSelect(): {
+//     checked: any[];
+//     all: HTMLSelectElement[];
+// } {
+//     const selects = $$('select:not(:disabled)') as Array<HTMLSelectElement>;
+//     const all = Array.from(selects);
+
+//     return {
+//         checked: all
+//             .map((select) => {
+//                 console.log({ select });
+
+//                 if (select.multiple === true) {
+//                     console.log({
+//                         is: Array.from(select.selectedOptions)?.map(
+//                             (option) => option.index,
+//                         ),
+//                     });
+
+//                     if (select.selectedOptions.length > 0) {
+//                         return (
+//                             Array.from(select.selectedOptions)
+//                                 // 0 based
+//                                 ?.map((option) => option.index)
+//                                 .join(' + ')
+//                         );
+//                     }
+//                     return -1;
+//                 } else {
+//                     return select.selectedIndex;
+//                 }
+//             })
+//             .filter((selectedIndex) => selectedIndex === -1),
+//         all,
+//     };
+// }
