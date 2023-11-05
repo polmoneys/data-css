@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "build:css": "npm run clean && node concat-css.js",
+    "build:css": "node concat-css.js",
     "clean": "rm -r dist/*"
   },
   "devDependencies": {

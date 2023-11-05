@@ -18,7 +18,8 @@ const mergedContent = sourceFolders.reduce((content, folder) => {
         if (file.endsWith('.css')) {
             const filePath = path.join(folder, file);
             const fileContent = fs.readFileSync(filePath, 'utf-8');
-            content += fileContent + '\n';
+            const fileName = path.parse(file).name;
+            content += `/* [${fileName}] */\n${fileContent}\n`;
         }
     });
 
