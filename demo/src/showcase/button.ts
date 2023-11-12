@@ -1,31 +1,55 @@
 import { html, svg } from 'lit-html';
 import { Line } from '../utils/skeletons';
 
-/*
+const states: Record<'idle' | 'sending' | 'done', string> = {
+    idle: 'Async call',
+    sending: `<div data-spinner="sm" style="--spinner-count: 8">
+            <span style="--spinner-index: 0"></span>
+            <span style="--spinner-index: 1"></span>
+            <span style="--spinner-index: 2"></span>
+            <span style="--spinner-index: 3"></span>
+            <span style="--spinner-index: 4"></span>
+            <span style="--spinner-index: 5"></span>
+            <span style="--spinner-index: 6"></span>
+            <span style="--spinner-index: 7"></span>
+        </div> working...`,
+    done: 'Done!',
+} as const;
 
-const states = {
-  idle: 'Do some hard work',
-  sending: '<img aria-hidden="true" width="24" height="24" src="https://assets.codepen.io/2585/ring-resize.svg" alt="" /> working...',
-  done: 'Done!',
+function setState(state: 'idle' | 'sending' | 'done', event: any) {
+    if (!document.startViewTransition) event.target!.innerHTML = states[state];
+    else
+        document.startViewTransition(
+            () => (event.target!.innerHTML = states[state] as any),
+        );
 }
 
-const demo = document.querySelector('#demo')
-
-demo.onclick = () => {
-  setState('sending')
-  setTimeout(() => setState('done'), 4000)
-  setTimeout(() => setState('idle'), 6000)
-}
-
-function setState(state) {
-  if (!document.startViewTransition)
-    demo.innerHTML = states[state]
-  else
-    document.startViewTransition(() => 
-      demo.innerHTML = states[state])
-}
-*/
 export function Button() {
+    /*
+    let timeout: any;
+    const fn = () => {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => {
+        }, 600);
+    };
+*/
+
+    let timeouts: Array<any> = [];
+
+    function clearAllTimeouts() {
+        timeouts.forEach((timeoutId) => {
+            clearTimeout(timeoutId);
+        });
+        timeouts = [];
+    }
+    function onButtonChange(event: any) {
+        clearAllTimeouts();
+
+        setState('sending', event);
+        timeouts.push(setTimeout(() => setState('done', event), 4000));
+        timeouts.push(setTimeout(() => setState('idle', event), 6000));
+    }
+
     return html` 
     ${Line(3)}
             <div data-group="flex" data-gap="xl" data-flex-wrap>
@@ -89,6 +113,10 @@ export function Button() {
                 />
             </svg>`}
                 </button>
+            
+            <button data-button 
+            @click=${{ handleEvent: onButtonChange }}
+            >Async call</button>
             </div>
         </div>
     ${Line(2)}

@@ -1,4 +1,5 @@
 import { html, svg } from 'lit-html';
+import { Line } from '../utils/skeletons';
 
 const icons: Array<IconName> = [
     'chevronLeft',
@@ -23,11 +24,12 @@ const icons: Array<IconName> = [
     'bookmark',
     'pin',
     'star',
+    'github',
 ];
 
 export function Icons() {
     return html`
-        <h3 data-font>Sprited Icons</h3>
+        ${Line(2)}
         <div
             data-group="flex"
             data-flex-wrap
@@ -37,18 +39,18 @@ export function Icons() {
             ${icons.map(
                 (icon) => html`${Icon({ d: icon, label: icon, size: 48 })}`,
             )}
-        </div>
-        <div data-spinner style="--spinner-count: 10">
-            <span style="--spinner-index: 0"></span>
-            <span style="--spinner-index: 1"></span>
-            <span style="--spinner-index: 2"></span>
-            <span style="--spinner-index: 3"></span>
-            <span style="--spinner-index: 4"></span>
-            <span style="--spinner-index: 5"></span>
-            <span style="--spinner-index: 6"></span>
-            <span style="--spinner-index: 7"></span>
-            <span style="--spinner-index: 8"></span>
-            <span style="--spinner-index: 9"></span>
+            <div data-spinner style="--spinner-count: 10">
+                <span style="--spinner-index: 0"></span>
+                <span style="--spinner-index: 1"></span>
+                <span style="--spinner-index: 2"></span>
+                <span style="--spinner-index: 3"></span>
+                <span style="--spinner-index: 4"></span>
+                <span style="--spinner-index: 5"></span>
+                <span style="--spinner-index: 6"></span>
+                <span style="--spinner-index: 7"></span>
+                <span style="--spinner-index: 8"></span>
+                <span style="--spinner-index: 9"></span>
+            </div>
         </div>
     `;
 }
@@ -75,7 +77,8 @@ type IconName =
     | 'chevronUp'
     | 'chevronDown'
     | 'chevronRight'
-    | 'chevronLeft';
+    | 'chevronLeft'
+    | 'github';
 
 export function Icon({
     d,

@@ -11,11 +11,14 @@ export const toggleTray = () => {
         (overlay as HTMLElement)!.dataset.trayOverlayOpen = 'true';
         (tray as HTMLElement)!.dataset.trayOpen = 'true';
         (body as HTMLElement).style['overflow'] = 'hidden';
+        (body as HTMLElement).style['height'] = '100vh';
+
         render(TrayContent(), $('[data-tray]')! as HTMLElement);
     } else {
         (overlay as HTMLElement)!.dataset.trayOverlayOpen = 'false';
         (tray as HTMLElement)!.dataset.trayOpen = 'false';
         (body as HTMLElement).style['overflow'] = 'auto';
+        (body as HTMLElement).style['height'] = 'auto';
     }
 };
 
@@ -58,7 +61,12 @@ export function TrayContent() {
     >
         ${Line(4)}
         <menu>
-            <button @click=${{ handleEvent: toggleTray }} type="reset">
+            <button
+                data-button
+                autofocus
+                @click=${{ handleEvent: toggleTray }}
+                type="reset"
+            >
                 Cancel
             </button>
         </menu>

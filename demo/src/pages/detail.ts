@@ -19,6 +19,8 @@ import { Unit } from '../showcase/unit';
 import { Line } from '../utils/skeletons';
 import { Soon } from '../utils/soon';
 import { Progress } from '../showcase/progress';
+import { Reset } from '../showcase/reset';
+import { Tokens } from '../showcase/tokens';
 
 export function renderDetail(value: string) {
     const attach = document.querySelector<HTMLDivElement>('article');
@@ -30,8 +32,9 @@ export function renderDetail(value: string) {
 function getDetail(value: string) {
     switch (value) {
         case 'reset':
+            return html`${Reset()}`;
         case 'tokens':
-            return html`${Soon()}`;
+            return html`${Tokens()}`;
         // form
         case 'button':
             return html`${Button()}`;

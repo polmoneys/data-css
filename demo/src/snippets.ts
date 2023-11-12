@@ -110,7 +110,7 @@ const SNIPPETS_GROUP: Snippets = [
         value: 'card',
         kind: 'group',
         src: 'https://github.com/polmoneys/data-css',
-        description: 'Ratio cards',
+        description: 'Aspect ratio <3',
     },
     {
         label: 'Group',
@@ -251,7 +251,7 @@ const SNIPPETS_UTILS: Snippets = [
         value: 'paper',
         kind: 'utils',
         src: 'https://github.com/polmoneys/data-css',
-        description: 'Surfaces',
+        description: 'Surfaces as in grouped styles',
     },
     {
         label: 'Place',

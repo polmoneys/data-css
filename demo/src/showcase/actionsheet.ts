@@ -38,12 +38,16 @@ export function ActionSheet() {
         <div data-actionsheet data-actionsheet-open="false">
             <div data-actionsheet-snap-sentinel></div>
             <menu data-actionsheet-menu>
-                <button>Action 1</button>
-                <button>Action 2</button>
-                <button>Action 3</button>
+                <button type="button" data-button="full">Action 1</button>
+                <button type="button" data-button="full">Action 2</button>
+                <button type="button" data-button="full" data-paper="accent">
+                    Action 3
+                </button>
             </menu>
             <menu>
-                <button type="reset">Cancel</button>
+                <button type="reset" data-button="full" data-paper="error">
+                    Cancel
+                </button>
             </menu>
         </div>`;
 }

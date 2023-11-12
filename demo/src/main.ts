@@ -62,7 +62,7 @@ import { renderCard } from './showcase/card';
 import { renderPanel } from './showcase/panel';
 import { initialState } from './store/initialState';
 import { ActionTypes } from './interfaces/state';
-import { $, emptyNode } from './utils';
+import { $, COLORLESS, emptyNode } from './utils';
 import { renderSearchResults } from './utils/search';
 import { renderColorPicker } from './utils/actions';
 
@@ -137,7 +137,7 @@ function loop() {
             menu.classList.remove('show');
         }
         renderDetail(snippet);
-        if (!['paper'].includes(snippet)) {
+        if (!COLORLESS.includes(snippet)) {
             renderColorPicker();
         }
     }

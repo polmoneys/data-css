@@ -5,7 +5,7 @@ import { Line } from '../utils/skeletons';
 export function Paper() {
     return html`
         ${Line(2)}
-        <div data-intrinsic-grid="xsm" data-gap="sm">
+        <div data-intrinsic-grid data-gap="sm">
             <div
                 data-ratio="square"
                 data-paper=""

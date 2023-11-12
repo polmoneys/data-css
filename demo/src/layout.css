@@ -5,7 +5,19 @@
         url(./fonts/BrandonGrotesque-Black.woff) format('woff'),
         url(./fonts/BrandonGrotesque-Black.woff2) format('woff2');
 }
-
+:where(html) {
+    --white-100-base: 255, 255, 255;
+    --white-100: rgb(var(--white-100-base));
+    --black-100-base: 15, 8, 38;
+    --black-100: rgb(var(--black-100-base));
+    --black-200: rgb(51, 51, 51);
+    --gray-100-base: 138, 133, 133;
+    --gray-100: rgb(var(--gray-100-base));
+    --gray-200-base: 177, 177, 177;
+    --gray-200: rgb(var(--gray-200-base));
+    --gray-300-base: 196, 191, 191;
+    --gray-300: rgb(var(--gray-300-base));
+}
 main {
     min-height: 100vh;
 }
@@ -50,7 +62,7 @@ section > header div:first-of-type {
 
 *.error,
 *.error * {
-    color: var(--red-100);
+    color: var(--gold-100);
 }
 *.gray,
 *.gray * {
@@ -145,14 +157,19 @@ body:has(option[value='pony']:checked) {
     padding: 3px;
     width: fit-content;
 }
-.highlight-blue:hover {
-    background: rgb(151, 151, 247);
+
+.highlight-snippet {
+    font-weight: bold;
 }
-.highlight-orange:hover {
-    background: #ffa500;
+.highlight-comment:hover {
+    background: var(--gray-300);
 }
-.highlight-green:hover {
-    background: #008000;
+.highlight-noise:hover {
+    background: var(--gray-300);
+}
+.highlight-snippet:hover {
+    background: var(--gold-100);
+    /* color: var(--gold-100); */
 }
 
 code {
@@ -171,13 +188,29 @@ code .line::before {
     counter-increment: step;
     width: 3ch;
     padding-right: var(--gap-1);
-    margin-right: var(--gap-1);
+    margin-right: 40px;
     display: inline-block;
     text-align: right;
-    color: var(--gray-300);
+    color: rgba(var(--black-100-base), 0.5);
     border-right: var(--border-width) solid currentColor;
 }
 
 code .line {
     display: flex;
+}
+
+code .line.level-1 {
+    padding-left: 30px;
+}
+
+code .line.level-1::before {
+    transform: translateX(-27px);
+}
+
+code .line.level-2 {
+    padding-left: 60px;
+}
+
+code .line.level-2::before {
+    transform: translateX(-57px);
 }

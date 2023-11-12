@@ -320,12 +320,12 @@ input[type='range']:not(article input[type='range'])::-moz-range-thumb {
         padding: 0.5vmin 2vmin;
     }
 }
-
+/* color picker */
 section > header div:first-of-type button:nth-child(1):focus {
     box-shadow: var(--shadow-focus-spread) var(--black-100);
 }
 section > header div:first-of-type button:nth-child(2):focus {
-    box-shadow: var(--shadow-focus-spread) var(--error-100);
+    box-shadow: var(--shadow-focus-spread) var(--gold-100);
 }
 
 section > header div:first-of-type button:nth-child(3):focus {

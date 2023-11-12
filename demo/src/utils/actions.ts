@@ -238,17 +238,17 @@ const COLORS = [
         value: 'currentColor',
     },
     {
-        label: 'red',
-        value: 'var(--red-100)',
+        label: 'gold',
+        value: 'var(--gold-100)',
     },
     {
         label: 'purple',
         value: 'var(--purple-100)',
     },
-    {
-        label: 'gray',
-        value: 'var(--gray-100)',
-    },
+    // {
+    //     label: 'gray',
+    //     value: 'var(--gray-100)',
+    // },
 ];
 
 export function renderColorPicker() {
@@ -265,7 +265,7 @@ function ColorPicker() {
         const { swatch } = event.target.dataset;
 
         const className = {
-            red: 'error',
+            gold: 'error',
             purple: 'focus',
             gray: 'gray',
             default: '',
