@@ -15,7 +15,6 @@ button[data-button] {
     justify-content: center;
     align-self: start;
 
-    background-color: var(--gray-100);
     color: currentColor;
     border-radius: var(--border-radius);
 
@@ -34,6 +33,13 @@ button[data-button] {
     -webkit-tap-highlight-color: transparent;
 }
 
+a[data-button]:not([data-paper]),
+button[data-button]:not([data-paper]) {
+    --overlay: rgba(var(--foreground), var(--alpha-200));
+    background-image: linear-gradient(var(--overlay), var(--overlay));
+    background-color: rgb(var(--background));
+}
+
 button[data-button='circle'] {
     align-items: center;
     justify-content: center;
@@ -47,12 +53,16 @@ a[data-button]:hover,
 a[data-button]:active,
 button[data-button]:hover,
 button[data-button]:active {
-    background-color: var(--gray-200);
+    --overlay: rgba(var(--foreground), var(--alpha-100));
+    background-image: linear-gradient(var(--overlay), var(--overlay));
+    background-color: rgb(var(--background));
 }
 
 a[data-button]:focus,
 button[data-button]:focus {
-    background-color: var(--gray-300);
+    --overlay: rgba(var(--foreground), var(--alpha-300));
+    background-image: linear-gradient(var(--overlay), var(--overlay));
+    background-color: rgb(var(--background));
     box-shadow: var(--shadow-focus);
     outline: var(--input-focus-outline);
 }
@@ -66,6 +76,11 @@ button[data-button='sm'] {
 a[data-button='stretch'],
 button[data-button='stretch'] {
     flex-grow: 1;
+}
+
+a[data-button='full'],
+button[data-button='full'] {
+    width: 100%;
 }
 
 button[data-button='fit'] {

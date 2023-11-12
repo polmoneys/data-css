@@ -1,5 +1,5 @@
 [data-tray-overlay] {
-    --tray-overlay: rgba(0, 0, 0, 0.2);
+    --tray-overlay: rgba(var(--black-100-base), 0.4);
     position: fixed;
     top: 0;
     right: 0;
@@ -19,23 +19,30 @@
 [data-tray] {
     --tray-height: 60vh;
     --tray-width: 80%;
-    --tray-left-right: calc(calc(100% - 80%) / 2);
+    --tray-start-end-spacing: calc(calc(100% - 80%) / 2);
 
     isolation: isolate;
     position: fixed;
     z-index: var(--z-max);
     width: var(--tray-width);
-    left: var(--tray-left-right);
-    right: var(--tray-left-right);
-    bottom: calc(calc(var(--tray-height) + 4vh) * -1);
+    left: var(--tray-start-end-spacing);
+    right: var(--tray-start-end-spacing);
+    bottom: 0;
+    /* bottom: calc(calc(var(--tray-height) + 4vh) * -1); */
+    transform: translateY(101%);
+    transition:
+        transform 0.5s cubic-bezier(0.32, 0.72, 0, 1),
+        opacity 0.1s ease-in-out;
+    opacity: 0;
     height: min(var(--tray-height), 600px);
     background-color: var(--white-200);
     border-radius: var(--border-radius) var(--border-radius) 0 0;
     box-shadow: var(--shadow);
-    transition: all 0.3s ease-in-out;
 }
 [data-tray][data-tray-open='true'] {
-    bottom: 0px;
+    bottom: 0;
+    transform: translateY(0);
+    opacity: 1;
 }
 
 @media (orientation: portrait) {

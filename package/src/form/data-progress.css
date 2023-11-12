@@ -24,12 +24,16 @@ progress[value] {
     display: inline-flex;
     width: var(--progress-width);
     height: calc(var(--comfy-height) / 2);
-    background: var(--gray-200);
+    --overlay: rgba(var(--foreground), var(--alpha-200));
+    background-image: linear-gradient(var(--overlay), var(--overlay));
+    background-color: rgb(var(--background));
     border-radius: var(--progress-radius);
 }
 
 progress[value]::-webkit-progress-bar {
-    background: var(--gray-200);
+    --overlay: rgba(var(--foreground), var(--alpha-200));
+    background-image: linear-gradient(var(--overlay), var(--overlay));
+    background-color: rgb(var(--background));
     border-radius: var(--progress-radius);
 }
 

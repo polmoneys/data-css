@@ -6,7 +6,7 @@
     flex-direction: column;
 }
 [data-panel]:hover {
-    border: var(--group-border-width) solid var(--error-100) !important;
+    border: var(--group-border-width) solid var(--red-100) !important;
 }
 [data-panel]:focus-within {
     box-shadow: 0 0 0 4px var(--color-focus);

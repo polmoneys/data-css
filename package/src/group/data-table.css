@@ -40,7 +40,9 @@ thead th {
     top: 0;
     border-top: 0;
     background-clip: padding-box;
-    background-color: var(--gray-200);
+    --overlay: rgba(var(--foreground), var(--alpha-100));
+    background-image: linear-gradient(var(--overlay), var(--overlay));
+    background-color: rgb(var(--background));
 }
 
 tbody td {
@@ -55,11 +57,15 @@ tbody {
 thead tr th:first-of-type,
 tbody tr td:first-of-type {
     position: sticky;
-    background-color: var(--gray-300);
+    --overlay: rgba(var(--foreground), var(--alpha-300));
+    background-image: linear-gradient(var(--overlay), var(--overlay));
+    background-color: rgb(var(--background));
     left: 0;
 }
 thead tr th:first-of-type {
-    background-color: var(--gray-200);
+    --overlay: rgba(var(--foreground), var(--alpha-300));
+    background-image: linear-gradient(var(--overlay), var(--overlay));
+    background-color: rgb(var(--background));
 }
 thead tr th:first-of-type {
     z-index: var(--z-max);

@@ -2,4 +2,9 @@
     vertical-align: middle;
     overflow: hidden;
     aspect-ratio: 1;
+    /* pointer-events: visiblePainted; */
+}
+
+[data-icon] * {
+    fill: currentColor;
 }

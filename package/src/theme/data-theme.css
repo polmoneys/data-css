@@ -1,18 +1,15 @@
 :root {
-    --background: var(--white-200);
-    --color: var(--black-200);
-    color: var(--color);
-    background-color: var(--background);
     color-scheme: light;
-
     accent-color: var(--color-invalid);
 
-    /* 
-    https://pqina.nl/blog/css-colors-with-custom-properties/
-    */
-    --foreground: 0, 0, 0;
-    --background: 255, 255, 255;
     --mod-invert: 1;
+}
+
+html {
+    color: rgb(var(--foreground));
+    --html-overlay: rgba(var(--foreground), 0.03);
+    background-image: linear-gradient(var(--html-overlay), var(--html-overlay));
+    background-color: rgb(var(--background));
 }
 
 [data-theme] {
@@ -37,28 +34,15 @@
 }
 
 /*
-@media (prefers-color-scheme: dark) {
-    :root {
-        --foreground: 255, 255, 255;
-        --background: 0, 0, 0;
-        --mod-invert: -1;
-        --mod-contrast: 1.4;
-    }
-} 
 
-html {
-    color: rgb(var(--foreground));
-    --overlay: rgba(var(--foreground), 0.2);
-    background-image: linear-gradient(var(--overlay), var(--overlay));
-    background-color: rgb(var(--background));
-}
-
-.panel {
-    background: rgba(var(--foreground), 0.25);
-}
-
-.panel-dark {
-    --overlay: rgba(var(--foreground), 0.5);
-    background-image: linear-gradient(var(--overlay), var(--overlay));
-    background-color: rgb(var(--background));
-} */
+   🙏🏽 https://pqina.nl/blog/css-colors-with-custom-properties/
+   
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --foreground: 255, 255, 255;
+            --background: 0, 0, 0;
+            --mod-invert: -1;
+            --mod-contrast: 1.4;
+        }
+    } 
+*/

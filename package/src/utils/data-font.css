@@ -20,7 +20,7 @@
     --font-size-6: 2.999rem;
     --font-size-fluid-1: clamp(2rem, 9vw, 3.5rem);
 
-    --font-shadow: 0px 3px 0px var(--white-100);
+    --font-shadow: 0px 3px 0px rgb(var(--background));
     --shout: uppercase;
     --set-solid: 1;
 }

@@ -4,11 +4,11 @@ input[type='range'] {
 }
 
 input[type='range']:focus {
-    accent-color: var(--color-focus);
+    accent-color: rgba(var(--foreground), var(--alpha-300));
 }
+
 input[type='range']:focus-visible {
     outline: none;
-    accent-color: var(--color-focus);
 }
 
 input[type='range'][orient='vertical'] {
@@ -16,6 +16,9 @@ input[type='range'][orient='vertical'] {
 }
 
 /*
+
+  https://codepen.io/thebabydino/pen/JoOomG
+  
    Customize
    ---------
   1. FF

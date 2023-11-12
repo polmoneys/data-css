@@ -60,6 +60,11 @@
 }
 
 @supports not selector(:has(*)) {
+    [data-input-fallback='start-end'] {
+        grid-template-columns: var(--input-start-width) 1fr var(
+                --input-end-width
+            );
+    }
 }
 
 [data-input-start],

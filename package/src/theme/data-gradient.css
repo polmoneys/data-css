@@ -1,5 +1,5 @@
 [data-gradient-input] {
-    --gradient-input-color: var(--gray-300);
+    --gradient-input-color: rgba(var(--foreground), var(--alpha-100));
 }
 
 [data-gradient-input]:has([data-input-start]):not(:has([data-input-end])) {

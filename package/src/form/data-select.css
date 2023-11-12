@@ -11,7 +11,9 @@
     cursor: pointer;
     padding: var(--gap-1) var(--gap-3);
     line-height: 1.1;
-    background-color: var(--gray-300);
+    --overlay: rgba(var(--foreground), var(--alpha-300));
+    background-image: linear-gradient(var(--overlay), var(--overlay));
+    background-color: rgb(var(--background));
     box-shadow: border;
 }
 
@@ -44,7 +46,9 @@ select::-ms-expand {
 }
 
 [data-select]:has(select[disabled], select:disabled)::after {
-    background-color: var(--gray-200);
+    --overlay: rgba(var(--foreground), var(--alpha-100));
+    background-image: linear-gradient(var(--overlay), var(--overlay));
+    background-color: rgb(var(--background));
 }
 
 [data-select] select[disabled],
@@ -77,7 +81,9 @@ select[multiple] {
     }
 
     select[multiple]::-webkit-scrollbar-track {
-        background-color: var(--gray-100);
+        --overlay: rgba(var(--foreground), var(--alpha-200));
+        background-image: linear-gradient(var(--overlay), var(--overlay));
+        background-color: rgb(var(--background));
     }
 
     select[multiple]::-webkit-scrollbar-thumb {

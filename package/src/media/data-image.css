@@ -1,9 +1,13 @@
 img[src$='.png'] {
-    background-color: var(--gray-300);
+    --overlay: rgba(var(--foreground), var(--alpha-200));
+    background-image: linear-gradient(var(--overlay), var(--overlay));
+    background-color: rgb(var(--background));
 }
 
 @media (prefers-color-scheme: dark) {
     img[src$='.png'] {
-        background-color: var(--gray-100);
+        --overlay: rgba(var(--foreground), var(--alpha-500));
+        background-image: linear-gradient(var(--overlay), var(--overlay));
+        background-color: rgb(var(--background));
     }
 }

@@ -6,7 +6,7 @@
     --border-width: 2px;
     --border-radius: 0.1em;
 
-    --disabled-opacity: 0.6;
+    --disabled-opacity: var(--alpha-500);
 
     /* input as in * interactive element with start/end slots */
     --input-slot-width: 2.4rem;

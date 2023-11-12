@@ -5,6 +5,10 @@
     position: relative;
     animation: spin 0.5s infinite steps(var(--spinner-count));
 }
+[data-spinner='sm'] {
+    height: calc(calc(var(--comfy-width) / 2) / 2.3);
+    width: calc(calc(var(--comfy-width) / 2) / 2.3);
+}
 
 @keyframes spin {
     to {

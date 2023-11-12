@@ -2,7 +2,7 @@
 
     Candidates
     ----------
-    1 - Override default focus styles
+    1 - Override default hover & focus styles
         &:is([data-button], [data-checkbox], [data-radio], [data-switch]):focus {
             box-shadow: var(--shadow-focus-spread) SOME_COLOR;
         }
@@ -16,8 +16,6 @@
 */
 
 [data-paper] {
-    --paper-fg: var(--black-100-base);
-    --paper-bg: var(--white-100-base);
     /* 
     if within 4px of the full viewport size, 
     remove border radius.
@@ -29,17 +27,14 @@
     border-radius: var(--paper-border-radius);
 }
 
-/* 
-    background: rgba(var(--paper-bg), 0.25);
-  --overlay: rgba(var(--foreground), 0.5);
+[data-paper] {
+    --overlay: rgba(var(--foreground), var(--alpha-400));
     background-image: linear-gradient(var(--overlay), var(--overlay));
     background-color: rgb(var(--background));
-*/
-[data-paper] {
-    background-color: rgba(var(--paper-fg), 0.3);
 
     &[data-paper-outline],
     &[data-paper-color] {
+        background-image: none;
         background-color: var(--transparent);
     }
 
@@ -61,27 +56,31 @@
 }
 
 [data-paper='transparent'] {
-    --paper-bg: var(--transparent);
-    background-color: var(--paper-bg) !important;
+    background-color: var(--transparent) !important;
+    background-image: none !important;
     box-shadow: none !important;
 }
 
 [data-paper='error'] {
-    --paper-bg: var(--red-100-base);
-    background: rgba(var(--paper-bg), 1);
+    --overlay: rgba(var(--purple-100-base), 1);
+    background-image: linear-gradient(var(--overlay), var(--overlay));
+    background-color: rgb(var(--background));
 
     &[data-paper-outline] {
-        --paper-fg: var(--red-100-base);
-        color: rgba(var(--paper-fg), 1);
+        background-color: var(--transparent) !important;
+        background-image: none !important;
+        color: var(--overlay);
     }
 }
 
 [data-paper='accent'] {
-    --paper-bg: var(--purple-100-base);
-    background: rgba(var(--paper-bg), 1);
+    --overlay: rgba(var(--gold-100-base), 1);
+    background-image: linear-gradient(var(--overlay), var(--overlay));
+    background-color: rgb(var(--background));
 
     &[data-paper-outline] {
-        --paper-fg: var(--purple-100-base);
-        color: rgba(var(--paper-fg), 1);
+        background-color: var(--transparent) !important;
+        background-image: none !important;
+        color: var(--overlay);
     }
 }

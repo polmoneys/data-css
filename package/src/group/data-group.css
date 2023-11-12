@@ -7,12 +7,12 @@ inherit these tokens
     --group-content-whitespace: var(--gap-3);
     --group-actions-whitespace: var(--gap-1) var(--gap-3);
     --group-min-height: 20vh;
-    --group-bg: var(--white-200);
+    --group-bg: #f5f5f7;
     --group-content-color: currentColor;
-    --group-actions-bg: var(--white-100);
+    --group-actions-bg: rgb(var(--background));
     --group-actions-color: currentColor;
     --group-odd-bg: rgba(0, 0, 0, 0.2);
-    --group-selection-bg: var(--white-100);
+    --group-selection-bg: rgb(var(--background));
     --group-selection-color: var(--color-focus);
     --group-shadow-color: 220 3% 15%;
     --group-shadow-strength: 1%;
@@ -21,7 +21,7 @@ inherit these tokens
         0 7px 14px -5px hsl(var(--group-shadow-color) /
                     calc(var(--group-shadow-strength) + 5%));
     --group-border-width: 0.15em;
-    --group-border-color: var(--black-200);
+    --group-border-color: rgb(var(--foreground));
     --group-border-radius: 0.4em;
     --group-border: var(--group-border-width) solid var(--group-border-color);
 }
@@ -78,6 +78,10 @@ inherit these tokens
 
 [data-grid-dense] {
     grid-auto-flow: dense;
+}
+
+[data-grid-equal-height] {
+    grid-auto-rows: 1fr;
 }
 
 /* 

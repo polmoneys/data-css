@@ -26,7 +26,9 @@
     }
 
     &:hover::-webkit-scrollbar-track {
-        background-color: var(--gray-300);
+        --overlay: rgba(var(--foreground), var(--alpha-300));
+        background-image: linear-gradient(var(--overlay), var(--overlay));
+        background-color: rgb(var(--background));
     }
 }
 
@@ -47,4 +49,10 @@
     scrollbar-gutter: stable;
     background-color: var(--transparent);
     scroll-padding-bottom: var(--gap-3);
+}
+
+@media (orientation: landscape) {
+    [data-overflow-portrait] {
+        overflow: hidden !important;
+    }
 }
