@@ -15,6 +15,7 @@
         "vite": "^4.4.5"
     },
     "dependencies": {
+        "@types/dom-view-transitions": "^1.0.4",
         "lit-html": "^2.8.0",
         "redux": "^4.2.1",
         "redux-thunk": "^2.4.2"
