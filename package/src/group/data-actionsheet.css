@@ -30,24 +30,6 @@
     padding: 0;
 }
 
-[data-actionsheet] > menu > button {
-    appearance: none;
-    padding: var(--gap-1) var(--gap-3);
-    border: none;
-}
-
-[data-actionsheet] > menu:first-of-type > button:first-of-type {
-    border-radius: var(--border-radius) var(--border-radius) 0 0;
-}
-
-[data-actionsheet] > menu:first-of-type > button:last-of-type {
-    border-radius: 0 0 var(--border-radius) var(--border-radius);
-}
-
-[data-actionsheet] > menu:last-of-type > button[type='reset'] {
-    border-radius: var(--border-radius);
-}
-
 [data-actionsheet] > [data-actionsheet-snap-sentinel] {
     scroll-snap-align: start;
 }

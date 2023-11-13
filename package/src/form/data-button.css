@@ -95,3 +95,37 @@ button[data-button='transparent'] {
 [data-button] svg {
     pointer-events: none;
 }
+
+[data-button-group] {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+[data-button-group='vertical'] {
+    flex-direction: column;
+}
+
+[data-button-group] [data-button] {
+    border-radius: 0;
+}
+[data-button-group] [data-button]:focus {
+    box-shadow: inset var(--shadow);
+}
+
+[data-button-group] > *:first-child {
+    border-top-left-radius: var(--border-radius);
+    border-bottom-left-radius: var(--border-radius);
+}
+[data-button-group] > *:last-child {
+    border-top-right-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+}
+
+[data-button-group='vertical'] > *:first-child {
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+}
+[data-button-group='vertical'] > *:last-child {
+    border-bottom-left-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+}

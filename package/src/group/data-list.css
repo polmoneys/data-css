@@ -84,5 +84,19 @@
     white-space: nowrap;
 }
 
-@supports not selector(:has(*)) {
+/* @supports not selector(:has(*)) {
+} */
+
+@media (min-width: 240px) and (max-width: 360px) {
+    [data-list-item-start=''] {
+        display: none !important;
+    }
+
+    [data-list-item=''] {
+        grid-template-columns: 1fr !important;
+    }
+
+    [data-list-item='']:has([data-list-item-end='']) {
+        grid-template-columns: 1fr var(--input-end-width) !important;
+    }
 }
