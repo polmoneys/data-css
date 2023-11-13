@@ -4,7 +4,7 @@ import { $$ } from '../utils';
 import { dispatch, store } from '../store';
 import { ActionTypes } from '../interfaces/state';
 
-function getCheckedRadioButtons(): {
+export function getCheckedRadioButtons(): {
     checked: HTMLInputElement[];
     all: HTMLInputElement[];
 } {

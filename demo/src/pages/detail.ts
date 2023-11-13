@@ -21,6 +21,7 @@ import { Soon } from '../utils/soon';
 import { Progress } from '../showcase/progress';
 import { Reset } from '../showcase/reset';
 import { Tokens } from '../showcase/tokens';
+import { Ratio } from '../showcase/ratio';
 
 export function renderDetail(value: string) {
     const attach = document.querySelector<HTMLDivElement>('article');
@@ -55,7 +56,7 @@ function getDetail(value: string) {
         // media
         case 'avatar':
         case 'scroller':
-        case 'image':
+            // case 'image':
             return html`${Scroller()}`;
         case 'article':
         case 'hero':
@@ -92,10 +93,11 @@ function getDetail(value: string) {
         case 'padding':
         case 'place':
         case 'print':
-        case 'ratio':
         case 'reorder':
         case 'util':
             return html`${Soon()}`;
+        case 'ratio':
+            return html`${Ratio()}`;
         case 'font':
             return html`${Fonts()}`;
         case 'paper':

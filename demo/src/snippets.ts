@@ -81,13 +81,13 @@ const SNIPPETS_MEDIA: Snippets = [
         src: 'https://github.com/polmoneys/data-css',
         description: '',
     },
-    {
-        label: 'Image',
-        value: 'image',
-        kind: 'media',
-        src: 'https://github.com/polmoneys/data-css',
-        description: '',
-    },
+    // {
+    //     label: 'Image',
+    //     value: 'image',
+    //     kind: 'media',
+    //     src: 'https://github.com/polmoneys/data-css',
+    //     description: '',
+    // },
 ];
 
 const SNIPPETS_GROUP: Snippets = [

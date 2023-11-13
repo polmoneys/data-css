@@ -8,6 +8,12 @@ export const COLORLESS = [
     'tokens',
     'button',
     'group',
+    'avatar',
+    'scroller',
+    'fit',
+    'overflow',
+    'gap',
+    'margin-auto',
 ];
 
 export function snippetKindToShape(kind: SnippetKind) {

@@ -37,7 +37,7 @@ export function ActionSheet() {
         ${Line(5)}
         <div data-actionsheet data-actionsheet-open="false">
             <div data-actionsheet-snap-sentinel></div>
-            <menu data-actionsheet-menu>
+            <menu data-actionsheet-menu data-button-group="vertical">
                 <button type="button" data-button="full">Action 1</button>
                 <button type="button" data-button="full">Action 2</button>
                 <button type="button" data-button="full" data-paper="accent">

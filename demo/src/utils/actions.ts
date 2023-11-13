@@ -285,15 +285,11 @@ function ColorPicker() {
     };
 
     return html`
-        <div data-group="flex" data-gap="sm">
+        <div data-button-group>
             ${COLORS.map(
                 (color) => html`
                     <button
-                        data-animation-wiggle-hover
-                        data-button="circle"
-                        data-fit="comfy-height"
-                        data-paper
-                        data-paper-outline
+                        data-button
                         data-swatch=${color.label}
                         @click=${{ handleEvent: onButtonChange }}
                     >

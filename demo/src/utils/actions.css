@@ -321,7 +321,11 @@ input[type='range']:not(article input[type='range'])::-moz-range-thumb {
     }
 }
 /* color picker */
-section > header div:first-of-type button:nth-child(1):focus {
+
+section > header div:first-of-type button {
+    min-width: fit-content;
+}
+/* section > header div:first-of-type button:nth-child(1):focus {
     box-shadow: var(--shadow-focus-spread) var(--black-100);
 }
 section > header div:first-of-type button:nth-child(2):focus {
@@ -334,4 +338,4 @@ section > header div:first-of-type button:nth-child(3):focus {
 
 section > header div:first-of-type button:nth-child(4):focus {
     box-shadow: var(--shadow-focus-spread) var(--gray-100);
-}
+} */

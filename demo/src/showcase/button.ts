@@ -117,6 +117,29 @@ export function Button() {
             <button data-button 
             @click=${{ handleEvent: onButtonChange }}
             >Async call</button>
+
+            <div data-button-group>
+             <button data-button 
+            >Start</button>
+              <button data-button 
+            >Mid</button>
+              <button data-button 
+            >Mid</button>
+              <button data-button 
+            >End</button>
+            </div>
+
+
+              <div data-button-group="vertical">
+             <button data-button 
+            >Start</button>
+              <button data-button 
+            >Mid</button>
+              <button data-button 
+            >Mid</button>
+              <button data-button 
+            >End</button>
+            </div>
             </div>
         </div>
     ${Line(2)}
