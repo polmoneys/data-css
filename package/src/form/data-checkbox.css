@@ -1,5 +1,4 @@
 input[type='checkbox']:not([data-switch]) {
-    /* For iOS < 15 */
     background-color: var(--color-white);
     color: currentColor;
     border: none;

@@ -33,7 +33,10 @@ html {
 body {
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
-    font-family: sans-serif;
+    font-family: system-ui, sans-serif;
+    font-family: Avenir, Montserrat, Corbel, 'URW Gothic', source-sans-pro,
+        sans-serif;
+    font-weight: normal;
     line-height: 1.4;
     font-size: var(--font-size-2);
     /* 1rem = 10px */

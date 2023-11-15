@@ -1,11 +1,13 @@
 /*
-article {
-  --hover: 0;
-}
+    Custom CSS properties can act as 'toggles':
+    
+    article {
+    --hover: 0;
+    }
 
-article:hover {
-  --hover: 1;
-}
+    article:hover {
+    --hover: 1;
+    }
 */
 
 figure[data-animation] {

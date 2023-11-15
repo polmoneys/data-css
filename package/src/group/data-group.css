@@ -1,8 +1,8 @@
 /* 
-List
-panel
-inherit these tokens
+    Card, List, Panel may inherit 
+    these tokens
  */
+
 :where(html) {
     --group-content-whitespace: var(--gap-3);
     --group-actions-whitespace: var(--gap-1) var(--gap-3);
@@ -41,11 +41,10 @@ inherit these tokens
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-
-    --space: 0.5em;
 }
 
 /* Variants */
+
 [data-group='grid'] {
     display: grid;
 }
@@ -97,7 +96,11 @@ inherit these tokens
     margin-inline: max(0px, ((100% - 64rem)/2));
 }
 
-/* Stack */
+/* 
+    Stack positions it's children as if them
+    ocuppy the same space. Ends position:absolute
+*/
+
 [data-stack] {
     width: fit-content;
     display: grid;
@@ -113,7 +116,11 @@ inherit these tokens
     visibility: hidden !important;
 }
 
-/* View */
+/*
+    A View wraps content and clamps it
+    to different coordinated widths
+*/
+
 [data-view=''] {
     --view-gap: clamp(1rem, 6vw, 3rem);
     --view-full: minmax(var(--view-gap), 1fr);
@@ -150,7 +157,13 @@ inherit these tokens
     border-radius: unset;
 }
 
-/* Intrinsic */
+/*
+    Intrinsic grid assign a min-width to
+    children so that them can grow to 
+    fill space but not shrink too much.
+    Ends width-related media queries
+*/
+
 [data-intrinsic-flex] {
     --min-content-width: 20rem;
     display: flex;
@@ -198,8 +211,9 @@ inherit these tokens
 
 /*
   Art direction
-  12 column grid enhanced by place-items 
+  Items play nice with data-ratio
 */
+
 [data-ad] {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
@@ -233,8 +247,18 @@ inherit these tokens
     grid-column: span 2;
 }
 
+@media (min-width: 240px) and (max-width: 360px) {
+    [data-ad-item] {
+        grid-column: span 12;
+    }
+}
+
+/*
+  Quick text columns
+*/
+
 [data-columns] {
     --columns-count: 3;
-    --columns-width: 150px;
+    --columns-width: min(150px, 30%);
     columns: var(--columns-count) var(--columns-width);
 }

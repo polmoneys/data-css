@@ -1,3 +1,7 @@
+/* 
+    Avoid layout shifts with
+    'stack' trick
+*/
 [data-tabs] {
     display: grid;
     grid-template-areas: 'overlap';

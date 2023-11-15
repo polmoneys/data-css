@@ -1,3 +1,8 @@
+/*
+    Gradients to style UI with slots/header/hooter
+    (Inputs/Modals/Cards)
+*/
+
 [data-gradient-input] {
     --gradient-input-color: rgba(var(--foreground), var(--alpha-100));
 }

@@ -1,6 +1,4 @@
 input[type='radio'] {
-    /* For iOS < 15 */
-    /* Not removed via appearance */
     background-color: var(--color-white);
     border: none;
     border-radius: var(--border-radius);

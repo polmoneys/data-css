@@ -1,3 +1,7 @@
+/* 
+    Sticks header & 
+    first cell of each row
+*/
 table,
 [data-table] {
     /* border-collapse: collapse;

@@ -1,3 +1,6 @@
+/* 
+    🙏🏽 https://pqina.nl/blog/css-colors-with-custom-properties/
+*/
 :where(html) {
     --foreground: 37, 37, 37;
     --background: 255, 255, 255;

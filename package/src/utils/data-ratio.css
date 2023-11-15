@@ -1,3 +1,6 @@
+/* 
+    Best CSS feature ever 
+*/
 :where(html) {
     --ratio-square: 1;
     --ratio-portrait: 9/16;

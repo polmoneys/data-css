@@ -1,0 +1,296 @@
+/*
+
+    Notes 
+    ------
+    
+    Interesting pattern to explore
+
+  <div data-panes >
+        <div data-pane >
+            <div pane-content="">
+                <div pane-content-main="">
+                <p>CONTENT</p>
+                </div>
+                <div pane-content-aside="">
+                Up Next:<strong>1:1 CSS</strong>
+                </div>
+            </div>
+            <div data-pane-resizer></div>
+        </div>
+
+        <div data-pane >
+            <div pane-content-secondary="">
+                <button>
+                <span>Important (5)</span>
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    className="w-6 h-6"
+                >
+                    <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                    />
+                </svg>
+                </button>
+                <button>
+                <span>Unread (10)</span>
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    className="w-6 h-6"
+                >
+                    <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                    />
+                </svg>
+                </button>
+                <button>
+                <span>Everything Else (24)</span>
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    className="w-6 h-6"
+                >
+                    <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                    />
+                </svg>
+                </button>
+
+                <button pane-content-secondary-aside="">
+                <span>Inbox (39)</span>
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    className="w-6 h-6"
+                >
+                    <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                    />
+                </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+*/
+
+:where(html) {
+    --pane-aspect-ratio: 16 / 10;
+    --pane-min-height: 5.5rem;
+    --pane-gap: 2rem;
+}
+
+[data-panes] {
+    container-type: size;
+    width: 90vmin;
+    aspect-ratio: var(--pane-aspect-ratio);
+    display: grid;
+    grid-template-rows: auto 1fr;
+    overflow: hidden;
+    border-radius: 12px;
+    gap: var(--pane-gap);
+}
+
+[data-pane] {
+    min-height: var(--pane-min-height);
+}
+
+[data-pane]:first-of-type {
+    position: relative;
+}
+
+[data-pane-resizer] {
+    position: relative;
+    right: 50%;
+    bottom: 0;
+    height: 12rem;
+    width: 100%;
+    resize: vertical;
+    overflow: hidden;
+    min-height: var(--pane-min-height);
+    max-height: calc(100cqh - (var(--pane-gap) + var(--pane-min-height)));
+    transform-origin: 100% 100%;
+    scale: 4 1;
+    translate: 28px 1.5rem;
+    background: green;
+    z-index: 9999;
+    clip-path: inset(calc(100% - 14px) 0 0 calc(100% - 14px));
+    /* Important to hide it */
+    opacity: 0;
+}
+
+/* [data-pane]:first-of-type::before {
+    content: '';
+    position: absolute;
+    height: 48px;
+    width: 48px;
+    left: 50%;
+    bottom: 0;
+    background: red;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 2;
+    translate: -50% calc(50% + 1rem);
+    opacity: 0;
+} */
+
+[data-pane]:first-of-type::after {
+    content: '';
+    position: absolute;
+    width: 3rem;
+    height: 0.5rem;
+    bottom: 0%;
+    left: 50%;
+    background: hsl(0 0% 90%);
+    translate: -50% calc(1.5rem + -50%);
+    pointer-events: none;
+    border-radius: 4rem;
+    z-index: 3;
+}
+
+pre::-webkit-scrollbar-track {
+    background: transparent;
+}
+pre::-webkit-scrollbar-thumb {
+    background: hsl(0 0% 50%);
+}
+pre::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;
+    background: transparent;
+}
+
+[data-pane] {
+    position: relative;
+}
+
+[pane-content] {
+    position: absolute;
+    inset: 0;
+    container-type: size;
+    overflow: auto;
+}
+
+[pane-content] header {
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    background: hsl(0 0% 100%);
+    z-index: 2;
+}
+
+[pane-content] header::after {
+    content: '';
+    position: absolute;
+    height: 1rem;
+    left: 0;
+    right: 0;
+    background: hsl(0 0% 100%);
+    top: 100%;
+    mask: linear-gradient(white, transparent);
+}
+
+[pane-content-main] {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+    background-color: pink;
+    padding: 1rem;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+[pane-content] :is(header, [pane-content-main]) {
+    display: none;
+}
+
+[pane-content-aside] {
+    display: none;
+    position: absolute;
+    inset: 1rem;
+    background: hsl(220 80% 80%);
+    border: 1px solid hsl(220 80% 50%);
+    place-items: center;
+    text-align: center;
+    border-radius: 4px;
+    justify-content: center;
+    gap: 1rem;
+    grid-auto-flow: column;
+}
+
+@container (height < 6rem) {
+    [pane-content] [pane-content-aside] {
+        display: grid;
+    }
+}
+
+@container (height > 6rem) {
+    [pane-content] :is([pane-content-main], header) {
+        display: grid;
+    }
+}
+
+[pane-content-secondary] {
+    padding: 1rem;
+    overflow: auto;
+    height: 100%;
+    display: grid;
+    align-content: start;
+    container-type: size;
+    gap: 1rem;
+}
+
+[pane-content-secondary] button {
+    font-size: 1.25rem;
+    font-weight: 100;
+    padding: 1rem;
+    border: 0;
+    background: hsl(0 0% 90%);
+    border-radius: 4px;
+    text-align: left;
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    color: hsl(0 0% 50%);
+}
+
+[pane-content-secondary] button svg {
+    width: 24px;
+}
+
+[pane-content-secondary] [pane-content-secondary-aside] {
+    display: none;
+}
+
+@container (height < 6rem) {
+    [pane-content-secondary] [pane-content-secondary-aside] {
+        display: flex;
+    }
+}
+
+@container (height > 6rem) {
+    [pane-content-secondary] button {
+        display: flex;
+    }
+}

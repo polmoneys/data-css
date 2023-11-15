@@ -1,6 +1,7 @@
 [data-no-scroll] {
     overflow: hidden;
 }
+
 [data-util='dead'] {
     pointer-events: none;
     -webkit-user-select: none;
@@ -8,6 +9,7 @@
     -ms-user-select: none;
     user-select: none;
 }
+
 [data-util='offscreen'] {
     clip: rect(0, 0, 0, 0);
     border: 0;
@@ -19,6 +21,7 @@
     white-space: nowrap;
     width: 1px;
 }
+
 [data-util='invisible'] {
     xpointer-events: auto;
     pointer-events: none;

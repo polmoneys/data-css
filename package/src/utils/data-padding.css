@@ -1,4 +1,6 @@
-/* https://moderncss.dev/ */
+/* 
+    🙏🏽 https://smolcss.dev 
+*/
 
 :where(html) {
     --space-sm: clamp(0.7rem, 1.5%, 1.1rem);
