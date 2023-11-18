@@ -23,14 +23,40 @@ html {
             calc(0.3 * var(--highlight-outline-alpha-factor))
         );
     --highlight-inset: inset 0 0 0 1px
-        rgba(255, 255, 255, calc(0.12 * var(--mod-contrast, 1)));
+        rgba(255, 255, 255, calc(0.22 * var(--mod-contrast, 1)));
     --highlight-top: inset 0 1px 0 0
-        rgba(255, 255, 255, calc(0.2 * var(--mod-contrast, 1)));
+        rgba(255, 255, 255, calc(0.13 * var(--mod-contrast, 1)));
     --highlight-bottom: inset 0 -1px 0 rgba(0, 0, 0, calc(0.3 /
                     var(--mod-contrast, 1)));
     box-shadow: var(--highlight-outline), var(--highlight-top),
         var(--highlight-bottom), var(--highlight-inset), var(--shadow-below),
         var(--shadow-behind);
+}
+
+[data-theme='100'] {
+    background: rgba(var(--foreground), 0.25);
+    background-image: linear-gradient(var(--overlay), var(--overlay));
+}
+
+[data-theme='200'] {
+    --overlay: rgba(var(--foreground), 0.44);
+    background-image: linear-gradient(var(--overlay), var(--overlay));
+    background-color: rgb(var(--background));
+}
+[data-theme='300'] {
+    --overlay: rgba(var(--foreground), 0.57);
+    background-image: linear-gradient(var(--overlay), var(--overlay));
+    background-color: rgb(var(--background));
+}
+[data-theme='400'] {
+    --overlay: rgba(var(--foreground), 0.66);
+    background-image: linear-gradient(var(--overlay), var(--overlay));
+    background-color: rgb(var(--background));
+}
+[data-theme='500'] {
+    --overlay: rgba(var(--foreground), 0.73);
+    background-image: linear-gradient(var(--overlay), var(--overlay));
+    background-color: rgb(var(--background));
 }
 
 /*

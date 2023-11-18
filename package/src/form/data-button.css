@@ -59,12 +59,20 @@ button[data-button]:active {
 }
 
 a[data-button]:focus,
-button[data-button]:focus {
+button[data-button]:focus,
+a[data-button]:focus-visible,
+button[data-button]:focus-visible {
     --overlay: rgba(var(--foreground), var(--alpha-300));
     background-image: linear-gradient(var(--overlay), var(--overlay));
     background-color: rgb(var(--background));
     box-shadow: var(--shadow-focus);
     outline: var(--input-focus-outline);
+}
+
+a[data-button]:focus-visible,
+button[data-button]:focus-visible {
+    /* more alpha */
+    --overlay: rgba(var(--foreground), var(--alpha-500));
 }
 
 a[data-button='sm'],
