@@ -18,6 +18,7 @@ import '../../package/src/group/data-card.css';
 import '../../package/src/group/data-group.css';
 import '../../package/src/group/data-list.css';
 import '../../package/src/group/data-panel.css';
+import '../../package/src/group/data-panes.css';
 import '../../package/src/group/data-scroller.css';
 import '../../package/src/group/data-table.css';
 import '../../package/src/group/data-tabs.css';
@@ -65,6 +66,7 @@ import { ActionTypes } from './interfaces/state';
 import { $, COLORLESS, emptyNode } from './utils';
 import { renderSearchResults } from './utils/search';
 import { renderColorPicker } from './utils/actions';
+import { renderLab } from './pages/lab';
 
 store.subscribe(loop);
 
@@ -136,7 +138,11 @@ function loop() {
         if (menu != null) {
             menu.classList.remove('show');
         }
-        renderDetail(snippet);
+        if (snippet === 'lab') {
+            renderLab();
+        } else {
+            renderDetail(snippet);
+        }
         if (!COLORLESS.includes(snippet)) {
             renderColorPicker();
         }

@@ -177,6 +177,67 @@ article form {
     top: 0;
     right: 0;
 }
+
+.easter-egg {
+    opacity: 0;
+}
+
+.easter-egg a {
+    cursor: none;
+}
+
+/* LAB DEMO*/
+[pane-content] header {
+    padding: var(--gap-3);
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
+[pane-content] header::after {
+    content: '';
+    position: absolute;
+    height: var(--gap-3);
+    left: 0;
+    right: 0;
+    top: 100%;
+    mask: linear-gradient(white, transparent);
+}
+
+[pane-content-secondary] button {
+    font-size: 1.25rem;
+    font-weight: 100;
+    padding: var(--gap-3);
+    border: 0;
+    border-radius: var(--border-radius);
+    text-align: left;
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--pane-grip);
+    color: hsl(0 0% 50%);
+}
+
+[pane-content-secondary] button svg {
+    width: 24px;
+}
+
+[pane-content] :is(header, [pane-content-main]) {
+    display: none !important;
+}
+
+@container (height > 6rem) {
+    [pane-content] :is([pane-content-main], header) {
+        display: grid !important;
+    }
+}
+
+@container (height > 6rem) {
+    [pane-content-secondary] button {
+        display: flex !important;
+    }
+}
+
 /* TODO: cute theme switcher */
 body:has(option[value='pony']:checked) {
     --font-family: cursive;

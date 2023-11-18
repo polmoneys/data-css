@@ -14,6 +14,7 @@ export const COLORLESS = [
     'overflow',
     'gap',
     'margin-auto',
+    'lab',
 ];
 
 export function snippetKindToShape(kind: SnippetKind) {
