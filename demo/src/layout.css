@@ -50,13 +50,13 @@ section > header div:first-of-type {
     }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 460px) and (orientation: portrait) {
     section > header [data-input] {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
     }
     section > header [data-input-start],
     section > header [data-input-end] {
-        display: none;
+        display: none !important;
     }
 }
 
@@ -186,7 +186,19 @@ article form {
     cursor: none;
 }
 
+body:has(.easter-egg a:hover) {
+    background-color: var(--gold-100);
+}
+
+body:has(.easter-egg a:hover) #q::placeholder {
+    color: var(--black-100);
+}
+
 /* LAB DEMO*/
+
+[data-panes] {
+    min-height: 600px;
+}
 [pane-content] header {
     padding: var(--gap-3);
     position: sticky;
@@ -236,14 +248,6 @@ article form {
     [pane-content-secondary] button {
         display: flex !important;
     }
-}
-
-/* TODO: cute theme switcher */
-body:has(option[value='pony']:checked) {
-    --font-family: cursive;
-    --text-color: #b10267;
-    --body-background: #ee458e;
-    --main-background: #f4b6d2;
 }
 
 /* pre/code */
