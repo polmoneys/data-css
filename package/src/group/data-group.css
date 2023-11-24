@@ -79,6 +79,11 @@
     grid-auto-flow: dense;
 }
 
+[data-grid-masonry] {
+    grid-template-rows: masonry;
+    masonry-auto-flow: next;
+}
+
 [data-grid-equal-height] {
     grid-auto-rows: 1fr;
 }

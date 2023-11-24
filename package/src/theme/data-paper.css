@@ -13,6 +13,9 @@
     3 - Text selection
         &::selection {
         }
+    4 - Placeholder 
+        :placeholder-shown {
+        }
     
 */
 

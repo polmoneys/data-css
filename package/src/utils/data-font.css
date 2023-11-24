@@ -125,6 +125,14 @@ p:has(span, b) {
     min-width: 100%;
 }
 
+[data-font-ellipsis-all-but-first-letter] {
+    font-size: 0;
+}
+
+[data-font-ellipsis-all-but-first-letter]::first-letter {
+    font-size: var(--font-size-2);
+}
+
 [data-font],
 [data-font='md'] {
     font-size: var(--font-size-2);

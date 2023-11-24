@@ -140,9 +140,13 @@ fieldset > *:not(*:last-child) {
     display: none !important;
 }
 
-ul,
-ol {
-    list-style: none;
+ul:not([data-list]) {
+    list-style-type: '';
+    margin-trim: block-end;
+}
+
+li:not([data-list-item]) {
+    margin-block-end: 1rem;
 }
 
 img {

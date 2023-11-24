@@ -33,6 +33,7 @@
     --mask-any-y-max: rgba(0, 0, 0, 0.8);
     border-image: linear-gradient(var(--mask-any-y-min), var(--mask-any-y-max))
         50%/50%;
+    /* border-image:fill 0 linear-gradient(var(--mask-any-y-min), var(--mask-any-y-max)) */
 }
 
 /* hint: works with [data-avatar] */

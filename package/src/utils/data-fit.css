@@ -26,3 +26,7 @@
 [data-fit='comfy-height'] {
     min-height: var(--comfy-height);
 }
+
+[data-cover] {
+    inset: 0;
+}
