@@ -15,6 +15,19 @@ Override `CSS property` value **inline** as in:
 
 ### Coming soon
 
+`Logical` properties:
+
+```css
+
+[something] {
+  margin-inline: 5rem; /* start and end value (= left and right) */
+  margin-block: 5rem; /* start and end value (= top and bottom) */
+  margin-inline: 1rem 2rem; /* start / end value (= left / right in ltr) */
+  margin-block: 3rem 4rem; /* start / end value (= top / bottom in ltr) */
+}
+
+```
+
 Apply `:focus-visible`:
 
 ```css
@@ -43,6 +56,23 @@ Provide `List` fallback for Firefox, still no `has` support yet:
 
 Showcase `CSS gradients` to style IDialogs/Cards with **slots** (start/end).
 
+More examples, like a `disclosure`:
+
+```css
+
+@media (scripting: enabled) {
+  [disclosure-content] {
+    display: none;
+  }
+}
+
+@media (scripting: none) {
+  [disclosure-trigger][aria-expanded] {
+    display: none;
+  }
+}
+
+```
 
 ### Why
 
@@ -112,3 +142,19 @@ const {
   )
 }
 ```
+
+### lol
+
+```html 
+  
+  <p --foo="bar">TEST</p> 
+
+```
+
+```css
+
+  [--foo] {
+      color: red;
+  }
+
+``````
